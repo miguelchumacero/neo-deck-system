@@ -1,5 +1,19 @@
+# Dependencias
 node_modules/
+
+# Logs
 *.log
+npm-debug.log*
+
+# OS / editor
 .DS_Store
-tests/**/*.diff.png
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Artefactos temporales de visual regression (Fase 3) — el golden SÍ se versiona
 tests/**/*.actual.png
+tests/**/*.diff.png
+
+# NOTA: dist/ se versiona a propósito (artefacto publicado que consume neo-propuestas).
