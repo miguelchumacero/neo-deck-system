@@ -4,10 +4,10 @@
 
 `tokens/tokens.json` es la **única** autoridad de color/tipo/espacio/radii. Nunca
 hardcodees un hex, font-size o radio en CSS. Cambia el token → `npm run tokens` →
-propaga a `theme.css`, `tokens.pptx.json` y docs.
+propaga a `theme.css` y docs.
 
-**Nunca edites archivos generados:** `src/theme.css`, `tokens/tokens.pptx.json`,
-`referencia/galeria.html` (cuando pase a generado en Fase 2).
+**Nunca edites archivos generados:** `src/theme.css`, y `reference/gallery.html`
+(cuando pase a generado en Fase 2).
 
 ## Convención de nombres
 
@@ -37,7 +37,7 @@ Un componente usa `var(--neo-*)`; nunca redefine un token ni sube de capa.
       <article class="nombre">…</article> */
    ```
 3. Usa solo tokens y utilidades safelisteadas. Cero hex crudo, cero arbitrary values.
-4. `npm run build` → verifica en `referencia/galeria.html`.
+4. `npm run build` → verifica en `reference/gallery.html`.
 
 Agregar un componente = **un solo sitio**. Aparece en galería + reference sin doble edición.
 

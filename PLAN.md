@@ -4,7 +4,8 @@ Design system de **slides/decks** de NEO Consulting (`neoconsulting.ai`), format
 1920×1080. Fuente única de verdad para tokens, marca, assets y componentes de slide.
 El agente (Claude) genera HTML limpio y semántico; esta librería sirve los estilos.
 
-> **Estado:** planning. Aún no se toca código de la librería.
+> **Estado:** Fase 0 (Fundación) completa. Pipeline de tokens + build Tailwind v4 +
+> render verificado. Siguiente: Fase 1 (Paridad — migrar componentes + `fixed/`).
 
 ---
 
@@ -47,7 +48,7 @@ Componente = clase semántica. Layout = subset acotado de utilidades Tailwind. C
 - tokens (color / type / spacing / radii)
 - assets: fonts, logos, backgrounds (patrón de puntos), íconos
 - reglas de marca (dark/light/mixed · navy solo portada/divisor/cierre · 🚀 solo en Logros · es-PE)
-- componentes de slide + `fijos/` + galería + `neo-kit.js` (escalado en pantalla)
+- componentes de slide + `fixed/` + galería + `neo-kit.js` (escalado en pantalla)
 
 **No absorbe** (fuera de scope):
 - componentes web-generales: dashboards, reportes, KPI cards web, tablas web
@@ -95,11 +96,12 @@ autoridad. El build **deriva** todo lo demás:
 
 ```
 tokens.json  ──build──▶  theme.css (@theme)      → CSS
-             ├─────────▶  tokens.pptx.json        → exporter pptx (Fase 6)
              └─────────▶  docs / reference         → skill + catálogo
 ```
 
-Cambias un color en un lugar → propaga a CSS, pptx y docs. Mata la desincronización
+(El exporter pptx de Fase 6 consumirá `tokens.json` directo — sin artefacto intermedio.)
+
+Cambias un color en un lugar → propaga a CSS y docs. Mata la desincronización
 **por construcción**, no por disciplina.
 
 ### Capas (separación de responsabilidades)
@@ -143,13 +145,13 @@ neo-ui/
   dist/
     neo-ui@x.y.z.css     # precompilado, versionado (+ alias latest)
   assets/                # fonts, logos, backgrounds, íconos (migrados)
-  fijos/                 # secciones locked (portadas, agenda, divisor, cronograma, cierre)
-  referencia/
-    galeria.html         # styleguide vivo (generado)
+  fixed/                 # secciones locked (portadas, agenda, divisor, cronograma, cierre)
+  reference/
+    gallery.html         # styleguide vivo (generado)
   neo-kit.js             # escalado en pantalla (sin cambios)
   tools/
-    build-tokens.mjs     # tokens.json → theme.css + tokens.pptx.json + docs
-    build-docs.mjs       # components.css → galería + reference
+    build-tokens.mjs     # tokens.json → theme.css
+    build-docs.mjs       # components.css → gallery + reference
     lint.mjs             # gate de validación headless
   tests/                 # visual regression + golden files
   .github/workflows/ci.yml
@@ -188,7 +190,7 @@ dev). **El mantenedor buildea; el agente nunca buildea** — solo linkea `dist/n
 ### CI/CD
 
 PR corre: `build` (falla si no compila) → `lint.mjs` → **visual regression** (screenshot
-headless de `fijos/` + `galeria`, diff vs golden). Nada mergea si rompe el render.
+headless de `fixed/` + `gallery`, diff vs golden). Nada mergea si rompe el render.
 Convierte la validación "a ojo" de hoy en gate mecánico.
 
 ---
@@ -214,7 +216,7 @@ Fase 4. El trabajo "componente a componente" es la Fase 4.
 | Fase | Qué | Riesgo |
 |---|---|---|
 | **0 — Fundación** | `git init`, scaffold, `package.json`. `tokens.json` + `build-tokens.mjs` → `theme.css`. safelist. Build Tailwind → `dist`. Verificar que buildea. | bajo, sin cambio visual |
-| **1 — Paridad** | Migrar los ~15 componentes actuales a `@layer components` + `@apply`. Migrar `fijos/` + galería + assets. Deck UCIC = **mismo render (golden pixel)** antes de agregar nada. Retirar neo-deck (`DEPRECATED.md`). | bajo |
+| **1 — Paridad** | Migrar los ~15 componentes actuales a `@layer components` + `@apply`. Migrar `fixed/` + galería + assets. Deck UCIC = **mismo render (golden pixel)** antes de agregar nada. Retirar neo-deck (`DEPRECATED.md`). | bajo |
 | **2 — Fuente única + docs** | `build-docs.mjs`. Cablear neo-propuestas a pinnear `dist`. Migrar brand narrative / assets. Retirar neo-design-system. | medio |
 | **3 — Gate** | `lint.mjs` + CI (build + lint + visual regression). | bajo |
 | **4 — Componentes nuevos** | Orden por frecuencia × riesgo (ver §9), **uno a la vez, revisado**. | incremental |

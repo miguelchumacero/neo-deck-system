@@ -2,11 +2,11 @@
 /**
  * build-tokens.mjs — deriva artefactos desde la FUENTE ÚNICA tokens/tokens.json.
  *
- *   tokens.json ──▶ src/theme.css          (@theme para Tailwind v4)
- *              └──▶ tokens/tokens.pptx.json (mapa plano para exporter pptx, Fase 6)
+ *   tokens.json ──▶ src/theme.css   (@theme para Tailwind v4)
  *
- * theme.css y tokens.pptx.json son GENERADOS. No editarlos a mano.
- * Cambias un token en tokens.json → propaga a CSS, pptx y docs. Cero desincronización.
+ * theme.css es GENERADO. No editarlo a mano.
+ * Cambias un token en tokens.json → propaga a CSS (y docs). Cero desincronización.
+ * (El exporter pptx de Fase 6 consumirá tokens.json directo — no se genera nada aún.)
  */
 import { readFile, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
@@ -15,7 +15,6 @@ import { dirname, join } from "node:path";
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SRC = join(ROOT, "tokens", "tokens.json");
 const OUT_CSS = join(ROOT, "src", "theme.css");
-const OUT_PPTX = join(ROOT, "tokens", "tokens.pptx.json");
 
 const isToken = (v) => v && typeof v === "object" && "$value" in v;
 
@@ -102,15 +101,4 @@ ${legacy.join("\n")}
 `;
 await writeFile(OUT_CSS, css);
 
-// ---------- tokens.pptx.json (mapa plano) ----------
-const flat = {};
-for (const group of ["color", "font", "text", "space", "radius", "canvas"]) {
-  if (!tokens[group]) continue;
-  walk(tokens[group], [group], (p, t) => {
-    flat[p.join(".")] = Array.isArray(t.$value) ? t.$value.join(", ") : t.$value;
-  });
-}
-await writeFile(OUT_PPTX, JSON.stringify(flat, null, 2) + "\n");
-
-console.log(`✓ theme.css        (${color.length} color, ${text.length} text lines, ${radius.length} radius)`);
-console.log(`✓ tokens.pptx.json (${Object.keys(flat).length} tokens)`);
+console.log(`✓ theme.css  (${color.length} color, ${text.length} text lines, ${radius.length} radius)`);

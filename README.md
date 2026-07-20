@@ -41,12 +41,11 @@ npm run css:dev    # watch mode
 
 ```
 tokens/tokens.json  ──build-tokens──▶  src/theme.css (@theme)   ──┐
-                    └───────────────▶  tokens/tokens.pptx.json    ├─Tailwind─▶ dist/neo-ui.css
-src/primitives.css · src/components.css · safelist ──────────────┘
+src/primitives.css · src/components.css · safelist ──────────────┼─Tailwind─▶ dist/neo-ui.css
+                                                                  ┘
 ```
 
-`tokens.json` es la **fuente única**. `src/theme.css` y `tokens.pptx.json` son
-**generados** — no editar a mano.
+`tokens.json` es la **fuente única**. `src/theme.css` es **generado** — no editar a mano.
 
 ## Estructura
 
@@ -60,7 +59,7 @@ src/primitives.css · src/components.css · safelist ─────────
 | `safelist.txt` | Allowlist legible de utilidades de layout |
 | `dist/neo-ui.css` | Artefacto precompilado |
 | `assets/` | fonts, logos, backgrounds |
-| `referencia/galeria.html` | Styleguide vivo |
+| `reference/gallery.html` | Styleguide vivo |
 | `tools/` | `build-tokens.mjs`, `build-docs.mjs`, `lint.mjs` |
 
 ## Reglas de marca (guardrails)
