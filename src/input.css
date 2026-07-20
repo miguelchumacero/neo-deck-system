@@ -1,0 +1,31 @@
+/* ============================================================================
+   input.css — entry de build. Compila a dist/neo-ui.css.
+     npx @tailwindcss/cli -i src/input.css -o dist/neo-ui.css --minify
+   El mantenedor buildea; el agente NUNCA buildea — solo linkea dist/neo-ui.css.
+   ============================================================================ */
+@import "tailwindcss";
+
+@import "./theme.css";       /* GENERADO desde tokens.json — @theme + aliases */
+@import "./primitives.css";  /* .slide (canvas), tipografía, cromo */
+@import "./components.css";   /* @layer components — los "Lego" de slide */
+
+/* ----------------------------------------------------------------------------
+   SAFELIST — utilidades de layout que el agente escribe en HTML NUEVO que el
+   build nunca vio. Sin esto, Tailwind tree-shakea y no las emite. Palette
+   curada (el "controlado" del híbrido). Arbitrary values (p-[37px]) jamás se
+   emiten → no funcionan → el linter los caza. Ver safelist.txt (doc humano).
+   ---------------------------------------------------------------------------- */
+@source inline("{grid,flex,flex-col,flex-1,hidden,relative,absolute,w-full,h-full,max-w-full,mt-auto,items-stretch}");
+@source inline("grid-cols-{1,2,3,4}");
+@source inline("col-span-{1,2,3,4}");
+@source inline("{gap,gap-x,gap-y}-{4,6,8,10,12,16}");
+@source inline("items-{start,center,end}");
+@source inline("justify-{start,center,center,between,end}");
+@source inline("text-{left,center,right}");
+@source inline("{p,px,py,pt,pb,pl,pr}-{4,6,8,10,12,16}");
+@source inline("{m,mx,my,mt,mb}-{4,6,8,10,12,16}");
+
+/* Escala tipográfica como utilidades (además de las clases semánticas .hero/.h1). */
+@source inline("text-{hero,h1,h2,callout,lead,body,body-sm,eyebrow}");
+@source inline("font-{display,body}");
+@source inline("{bg,text,border}-{neo-navy,neo-blue,neo-blue-light,neo-lila,neo-white,neo-border}");

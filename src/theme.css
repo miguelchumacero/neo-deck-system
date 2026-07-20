@@ -1,0 +1,92 @@
+/* ============================================================================
+   theme.css — GENERADO desde tokens/tokens.json por tools/build-tokens.mjs
+   NO EDITAR A MANO. Editar tokens.json y correr `npm run tokens`.
+   ============================================================================ */
+@theme {
+  /* --- El cierre: matar namespaces default. Solo tokens NEO generan utilidades. --- */
+  --color-*: initial;
+  --text-*: initial;
+  --font-*: initial;
+
+  /* --- Color --- */
+  --color-neo-navy: #000033;
+  --color-neo-navy-mid: #0A0A5C;
+  --color-neo-navy-light: #1A1A8C;
+  --color-neo-blue: #05058C;
+  --color-neo-blue-light: #9DB0FF;
+  --color-neo-violet: #6E6EB9;
+  --color-neo-white: #FFFFFF;
+  --color-neo-lila: #F4F2FA;
+  --color-neo-cell: #DCDCFF;
+  --color-neo-peach: #F5E6D0;
+  --color-neo-text-secondary: #4A4A6A;
+  --color-neo-border: #D0D0E0;
+  --color-neo-row-alt: #F8F8FC;
+  --color-neo-success: #2ECC71;
+  --color-neo-danger: #E74C3C;
+  --color-client-color: #05058C;
+
+  /* --- Tipografía (familias) --- */
+  --font-display: "PT Serif", Georgia, "Times New Roman", serif;
+  --font-body: Montserrat, "Helvetica Neue", Arial, sans-serif;
+
+  /* --- Escala tipográfica fija (utilidades text-*) --- */
+  --text-hero: 112px;
+  --text-hero--line-height: 1.02;
+  --text-hero--letter-spacing: -0.015em;
+  --text-hero--font-weight: 700;
+  --text-h1: 74px;
+  --text-h1--line-height: 1.06;
+  --text-h1--letter-spacing: -0.01em;
+  --text-h1--font-weight: 700;
+  --text-h2: 56px;
+  --text-h2--line-height: 1.1;
+  --text-h2--font-weight: 700;
+  --text-callout: 34px;
+  --text-callout--line-height: 1.35;
+  --text-lead: 28px;
+  --text-lead--line-height: 1.5;
+  --text-body: 21px;
+  --text-body--line-height: 1.55;
+  --text-body-sm: 18px;
+  --text-body-sm--line-height: 1.55;
+  --text-eyebrow: 15px;
+  --text-eyebrow--line-height: 1.2;
+  --text-eyebrow--letter-spacing: 0.16em;
+  --text-eyebrow--font-weight: 600;
+
+  /* --- Radii --- */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+  --radius-pill: 999px;
+}
+
+/* --- Aliases legacy + canvas: autoría de componentes con var(--neo-*) --- */
+:root {
+  --neo-navy: var(--color-neo-navy);
+  --neo-navy-mid: var(--color-neo-navy-mid);
+  --neo-navy-light: var(--color-neo-navy-light);
+  --neo-blue: var(--color-neo-blue);
+  --neo-blue-light: var(--color-neo-blue-light);
+  --neo-violet: var(--color-neo-violet);
+  --neo-white: var(--color-neo-white);
+  --neo-lila: var(--color-neo-lila);
+  --neo-cell: var(--color-neo-cell);
+  --neo-peach: var(--color-neo-peach);
+  --neo-text-secondary: var(--color-neo-text-secondary);
+  --neo-border: var(--color-neo-border);
+  --neo-row-alt: var(--color-neo-row-alt);
+  --neo-success: var(--color-neo-success);
+  --neo-danger: var(--color-neo-danger);
+  --client-color: var(--color-client-color);
+  --r-sm: var(--radius-sm);
+  --r-md: var(--radius-md);
+  --r-lg: var(--radius-lg);
+  --r-xl: var(--radius-xl);
+  --r-pill: var(--radius-pill);
+  --slide-w: 1920px;
+  --slide-h: 1080px;
+  --gutter: 100px;
+}

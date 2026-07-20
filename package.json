@@ -1,0 +1,19 @@
+{
+  "name": "neo-ui",
+  "version": "0.1.0",
+  "description": "Design system de slides/decks de NEO Consulting (1920×1080). Fuente única de tokens, marca, assets y componentes de slide.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "tokens": "node tools/build-tokens.mjs",
+    "css": "npx @tailwindcss/cli -i src/input.css -o dist/neo-ui.css --minify",
+    "css:dev": "npx @tailwindcss/cli -i src/input.css -o dist/neo-ui.css --watch",
+    "build": "npm run tokens && npm run css",
+    "docs": "node tools/build-docs.mjs",
+    "lint": "node tools/lint.mjs"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.0",
+    "tailwindcss": "^4.1.0"
+  }
+}

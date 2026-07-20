@@ -1,0 +1,37 @@
+/* ============================================================================
+   components.css — @layer components. Los "Lego" de slide.
+   Convención de doc (parseada por tools/build-docs.mjs → galería + reference):
+     @component .nombre — descripción corta
+     @example <html co-ubicado que demuestra el componente>
+   FASE 0: starter (.card, .pill). FASE 1 migra los ~15 componentes del kit
+   actual (proc-card, agenda, stage-block, cron, temario, timeline, socials...).
+   ============================================================================ */
+
+@layer components {
+
+  /* @component .card — contenedor genérico de contenido sobre fondo claro.
+     @example
+     <article class="card">
+       <h3 class="h2">Título</h3>
+       <p class="body muted">Descripción del bloque.</p>
+     </article> */
+  .card {
+    background: var(--neo-white);
+    border: 1px solid var(--neo-border);
+    border-radius: var(--r-lg);
+    padding: 40px;
+  }
+  .card.soft { background: var(--neo-lila); border-color: transparent; }
+
+  /* @component .pill — etiqueta / tag inline.
+     @example
+     <span class="pill">Fase 1</span> */
+  .pill {
+    display: inline-block;
+    background: #EEEBFB; border: 1px solid #D9D4F4; color: #5B5BB0;
+    box-shadow: 0 3px 10px rgba(30, 20, 80, .12);
+    font-family: var(--font-body); font-weight: 700; font-size: 16px;
+    letter-spacing: .06em; text-transform: uppercase;
+    padding: 11px 24px; border-radius: var(--r-pill);
+  }
+}

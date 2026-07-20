@@ -1,0 +1,88 @@
+/* ============================================================================
+   primitives.css — capa base: canvas (.slide), tipografía, cromo.
+   Depende solo de theme (tokens). Nunca hardcodea hex → solo var(--neo-*).
+   ============================================================================ */
+
+/* -------- Fuentes locales (offline + marca). Rutas relativas a dist/. -------- */
+@font-face { font-family: "Montserrat"; src: url("../assets/fonts/Montserrat-VariableFont_wght.ttf") format("truetype-variations"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("../assets/fonts/Montserrat-Italic-VariableFont_wght.ttf") format("truetype-variations"); font-weight: 100 900; font-style: italic; font-display: swap; }
+@font-face { font-family: "PT Serif"; src: url("../assets/fonts/PTSerif-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "PT Serif"; src: url("../assets/fonts/PTSerif-Italic.ttf") format("truetype"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "PT Serif"; src: url("../assets/fonts/PTSerif-Bold.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "PT Serif"; src: url("../assets/fonts/PTSerif-BoldItalic.ttf") format("truetype"); font-weight: 700; font-style: italic; font-display: swap; }
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: #0b0b1a;               /* escenario detrás de los slides */
+    font-family: var(--font-body);
+    color: var(--neo-navy);
+  }
+}
+
+@layer components {
+  /* -------- Escenario / canvas 1920×1080 -------- */
+  .deck  { display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px 0; }
+  .slide {
+    width: var(--slide-w); height: var(--slide-h);
+    position: relative; overflow: hidden;
+    background: var(--neo-white); color: var(--neo-navy);
+    padding: var(--gutter);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, .5);
+  }
+
+  /* Fondos navy — SOLO portada, divisores, cierre (regla de marca §7.4) */
+  .slide.dark { background: var(--neo-navy); color: var(--neo-white); }
+  .slide.dark-bg {
+    background-color: var(--neo-navy);
+    background-image: url("../assets/backgrounds/section-divider-dots.png");
+    background-size: cover; background-position: center;
+    color: var(--neo-white);
+  }
+
+  /* -------- Tipografía (escala fija — utilidades text-* de theme) -------- */
+  .hero    { @apply text-hero font-display; margin: 0; }
+  .h1      { @apply text-h1 font-display; margin: 0; }
+  .h2      { @apply text-h2 font-display; margin: 0; }
+  .lead    { @apply text-lead font-body; margin: 0; }
+  .body    { @apply text-body font-body; margin: 0; }
+  .body-sm { @apply text-body-sm font-body; margin: 0; }
+  .callout { @apply text-callout font-display; font-style: italic; margin: 0; }
+  .eyebrow {
+    @apply text-eyebrow font-body;
+    text-transform: uppercase; color: var(--neo-blue); margin: 0 0 20px;
+  }
+  .dark .eyebrow, .dark-bg .eyebrow { color: var(--neo-blue-light); }
+
+  .muted { color: var(--neo-text-secondary); }
+  .dark .muted, .dark-bg .muted { color: rgba(255, 255, 255, .75); }
+
+  em.acc { font-style: italic; color: var(--neo-blue); font-weight: 700; }
+  .dark em.acc, .dark-bg em.acc { color: var(--neo-blue-light); }
+  strong { font-weight: 700; }
+
+  /* -------- Cromo: co-branding header + footer -------- */
+  .cobrand {
+    position: absolute; top: 52px; right: var(--gutter);
+    display: flex; align-items: center; gap: 24px; height: 56px; z-index: 5;
+  }
+  .cobrand img { height: 100%; width: auto; display: block; }
+  .cobrand .client-logo {
+    height: 52px; display: flex; align-items: center;
+    font-family: var(--font-body); font-weight: 700; font-size: 26px; color: var(--neo-navy);
+  }
+  .cobrand .sep { width: 1px; height: 38px; background: var(--neo-border); }
+
+  .footer-meta {
+    position: absolute; bottom: 56px; left: var(--gutter); right: var(--gutter);
+    display: flex; justify-content: space-between;
+    font-family: var(--font-body); font-weight: 500; font-size: 15px; color: var(--neo-text-secondary);
+  }
+  .dark .footer-meta, .dark-bg .footer-meta { color: rgba(255, 255, 255, .6); }
+
+  /* -------- Utilidades de composición de slide -------- */
+  .stack    { display: flex; flex-direction: column; height: 100%; }
+  .push     { margin-top: auto; }
+  .center-v { display: flex; flex-direction: column; justify-content: center; height: 100%; }
+}
