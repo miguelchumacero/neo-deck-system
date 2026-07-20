@@ -13,11 +13,13 @@ Versionado [SemVer](https://semver.org/lang/es/).
 - `src/theme.css` (generado) con el **cierre**: `--color-*/--text-*/--font-* : initial`
   → solo tokens NEO generan utilidades. Aliases legacy `var(--neo-*)` para autoría.
 - `src/primitives.css` — `.slide` (canvas 1920×1080), tipografía, cromo, `@font-face`.
-- `src/components.css` — starter (`.card`, `.pill`) + convención de doc para galería.
+- `src/components.css` — starter (`.card`, `.pill`, `.client-panel`) + convención de doc.
 - `src/input.css` + safelist vía `@source inline` (layout curado) · `safelist.txt` (doc).
 - Assets migrados: fonts (PT Serif, Montserrat), logos, background de puntos.
 - `dist/neo-ui.css` — build Tailwind v4 verificado.
-- `reference/gallery.html` — seed de styleguide (render verificado en Chrome).
+- `reference/gallery.html` — seed de styleguide con las 2 portadas reales del kit
+  (portada-neo marca + portada-propuesta cliente) + showcase de componentes. Render
+  verificado en Chrome.
 - Docs: `README.md`, `CONTRIBUTING.md`, este `CHANGELOG.md`.
 
 ### Pendiente

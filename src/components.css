@@ -23,6 +23,20 @@
   }
   .card.soft { background: var(--neo-lila); border-color: transparent; }
 
+  /* @component .client-panel — placeholder de logo/foto del cliente (portada, equipo).
+     @example
+     <div class="client-panel" style="min-height:660px">
+       <span class="hint">Logo + foto del cliente</span>
+       <span class="hint-sm">Reemplaza este panel por una imagen del cliente</span>
+     </div> */
+  .client-panel {
+    background: #ECECF2; border: 2px dashed var(--neo-border); border-radius: var(--r-xl);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 14px; text-align: center; padding: 48px;
+  }
+  .client-panel .hint    { font-family: var(--font-body); font-weight: 600; font-size: 22px; color: #8A8AA2; }
+  .client-panel .hint-sm { font-family: var(--font-body); font-weight: 400; font-size: 16px; color: #A6A6BC; }
+
   /* @component .pill — etiqueta / tag inline.
      @example
      <span class="pill">Fase 1</span> */

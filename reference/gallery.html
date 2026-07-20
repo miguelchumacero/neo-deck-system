@@ -14,24 +14,37 @@
 <body>
   <div class="deck">
 
-    <!-- Slide 1 · portada (dark-bg) -->
+    <!-- Slide 1 · Portada NEO · FIJA verbatim (fijos/portada-neo.html) -->
     <section class="slide dark-bg">
-      <div class="cobrand">
-        <img src="../assets/logos/neo-logo-white.png" alt="NEO">
-        <span class="sep"></span>
-        <span class="client-logo" style="color:#fff">CLIENTE</span>
+      <div class="center-v" style="align-items:center; text-align:center;">
+        <img src="../assets/logos/neo-logo-white.png" alt="NEO · 25 años" style="height:56px; width:auto;">
+        <h1 class="hero" style="color:var(--neo-white); margin-top:76px;">Neo Consulting</h1>
+        <p style="font-family:var(--font-display); font-weight:700; font-size:40px; line-height:1.4; color:var(--neo-white); margin:36px 0 0; max-width:1000px;">Logra tus objetivos de negocio utilizando data e inteligencia artificial</p>
       </div>
-      <div class="center-v">
-        <p class="eyebrow">Propuesta de servicio</p>
-        <h1 class="hero">Título de <em class="acc">portada</em></h1>
-        <p class="lead muted" style="margin-top:28px; max-width:1100px">
-          Subtítulo de la propuesta. PT Serif display + Montserrat body, tokens NEO.
-        </p>
-      </div>
-      <div class="footer-meta"><span>NEO Consulting</span><span>2026</span></div>
+      <div style="position:absolute; bottom:96px; left:0; right:0; text-align:center; font-family:var(--font-body); font-weight:500; font-size:24px; color:var(--neo-blue-light);">neoconsulting.ai</div>
     </section>
 
-    <!-- Slide 2 · datos (blanco) · grid safelist + componentes -->
+    <!-- Slide 2 · Portada de la propuesta · FIJA template (swap datos) -->
+    <section class="slide">
+      <div class="cobrand">
+        <span class="client-logo">[[CLIENTE]]</span>
+        <span class="sep"></span>
+        <img src="../assets/logos/neo-logo-navy.png" alt="NEO · 25 años">
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:90px; height:100%; align-items:center;">
+        <div class="client-panel" style="min-height:660px;">
+          <span class="hint">Logo + foto del cliente</span>
+          <span class="hint-sm">Reemplaza este panel por una imagen del cliente</span>
+        </div>
+        <div style="display:flex; flex-direction:column; justify-content:space-between; height:660px; padding:16px 0;">
+          <p style="font-family:var(--font-body); font-weight:400; font-size:32px; color:var(--neo-navy); margin:0;">Propuesta</p>
+          <h1 class="h1">[[Título de la<br>propuesta]]<br><em class="acc">[[subtítulo italic]]</em></h1>
+          <p class="body muted" style="margin:0;">[[Cliente]] &nbsp;|&nbsp; [[Mes Año]]</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 3 · Showcase de componentes (grid safelist + .card + .pill) -->
     <section class="slide">
       <div class="cobrand">
         <img src="../assets/logos/neo-logo-navy.png" alt="NEO">
@@ -56,7 +69,7 @@
         </div>
         <p class="callout push" style="color:var(--neo-blue)">Escala tipográfica fija, cero hex crudo.</p>
       </div>
-      <div class="footer-meta"><span>neo-ui · galería seed</span><span>Slide 2</span></div>
+      <div class="footer-meta"><span>neo-ui · galería seed</span><span>Slide 3</span></div>
     </section>
 
   </div>
