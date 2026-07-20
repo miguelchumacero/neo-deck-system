@@ -197,11 +197,11 @@ Convierte la validación "a ojo" de hoy en gate mecánico.
 
 ## 7 · Reglas de marca (guardrails — heredadas, no romper)
 
-1. **Solo tokens.** Colores vía `var(--neo-*)` / `--client-color`. Cero hex crudo nuevo.
+1. **Solo tokens.** Colores vía `var(--<token>)` / `--client-color`. Cero hex crudo nuevo.
 2. **Escala tipográfica fija.** Clases (`.hero/.h1/…`). No font-sizes sueltos.
 3. **Canvas 1920×1080.** Nada desborda. Respeta el gutter (100px).
 4. **Fondos navy solo** en portada, divisores y cierre (`.dark-bg`). Slides de datos = blanco.
-5. **Sobre navy:** acentos en azul claro `--neo-blue-light` o violeta, **nunca** `--neo-blue`.
+5. **Sobre navy:** acentos en azul claro `--blue-light` o violeta, **nunca** `--blue`.
 6. **Acento italic** PT Serif → `<em class="acc">`. Negritas solo 2–3 frases clave por slide.
 7. **Español (es-PE).** Emoji 🚀 solo en líneas de "Logros" de casos de éxito.
 8. **Tipografía:** títulos PT Serif Bold; cuerpo Montserrat.

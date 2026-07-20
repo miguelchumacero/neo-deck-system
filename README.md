@@ -66,4 +66,4 @@ src/primitives.css · src/components.css · safelist ─────────
 
 Ver `PLAN.md §7`. Resumen: solo tokens (cero hex crudo) · escala tipográfica fija ·
 canvas 1920×1080 sin overflow · navy solo en portada/divisor/cierre · sobre navy usar
-`--neo-blue-light` (nunca `--neo-blue`) · es-PE · 🚀 solo en Logros.
+`--blue-light` (nunca `--blue`) · es-PE · 🚀 solo en Logros.

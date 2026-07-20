@@ -9,21 +9,21 @@
   --font-*: initial;
 
   /* --- Color --- */
-  --color-neo-navy: #000033;
-  --color-neo-navy-mid: #0A0A5C;
-  --color-neo-navy-light: #1A1A8C;
-  --color-neo-blue: #05058C;
-  --color-neo-blue-light: #9DB0FF;
-  --color-neo-violet: #6E6EB9;
-  --color-neo-white: #FFFFFF;
-  --color-neo-lila: #F4F2FA;
-  --color-neo-cell: #DCDCFF;
-  --color-neo-peach: #F5E6D0;
-  --color-neo-text-secondary: #4A4A6A;
-  --color-neo-border: #D0D0E0;
-  --color-neo-row-alt: #F8F8FC;
-  --color-neo-success: #2ECC71;
-  --color-neo-danger: #E74C3C;
+  --color-navy: #000033;
+  --color-navy-mid: #0A0A5C;
+  --color-navy-light: #1A1A8C;
+  --color-blue: #05058C;
+  --color-blue-light: #9DB0FF;
+  --color-violet: #6E6EB9;
+  --color-white: #FFFFFF;
+  --color-lila: #F4F2FA;
+  --color-cell: #DCDCFF;
+  --color-peach: #F5E6D0;
+  --color-text-secondary: #4A4A6A;
+  --color-border: #D0D0E0;
+  --color-row-alt: #F8F8FC;
+  --color-success: #2ECC71;
+  --color-danger: #E74C3C;
   --color-client-color: #05058C;
 
   /* --- Tipografía (familias) --- */
@@ -63,23 +63,23 @@
   --radius-pill: 999px;
 }
 
-/* --- Aliases legacy + canvas: autoría de componentes con var(--neo-*) --- */
+/* --- Aliases cortos + canvas: autoría de componentes con var(--navy) --- */
 :root {
-  --neo-navy: var(--color-neo-navy);
-  --neo-navy-mid: var(--color-neo-navy-mid);
-  --neo-navy-light: var(--color-neo-navy-light);
-  --neo-blue: var(--color-neo-blue);
-  --neo-blue-light: var(--color-neo-blue-light);
-  --neo-violet: var(--color-neo-violet);
-  --neo-white: var(--color-neo-white);
-  --neo-lila: var(--color-neo-lila);
-  --neo-cell: var(--color-neo-cell);
-  --neo-peach: var(--color-neo-peach);
-  --neo-text-secondary: var(--color-neo-text-secondary);
-  --neo-border: var(--color-neo-border);
-  --neo-row-alt: var(--color-neo-row-alt);
-  --neo-success: var(--color-neo-success);
-  --neo-danger: var(--color-neo-danger);
+  --navy: var(--color-navy);
+  --navy-mid: var(--color-navy-mid);
+  --navy-light: var(--color-navy-light);
+  --blue: var(--color-blue);
+  --blue-light: var(--color-blue-light);
+  --violet: var(--color-violet);
+  --white: var(--color-white);
+  --lila: var(--color-lila);
+  --cell: var(--color-cell);
+  --peach: var(--color-peach);
+  --text-secondary: var(--color-text-secondary);
+  --border: var(--color-border);
+  --row-alt: var(--color-row-alt);
+  --success: var(--color-success);
+  --danger: var(--color-danger);
   --client-color: var(--color-client-color);
   --r-sm: var(--radius-sm);
   --r-md: var(--radius-md);

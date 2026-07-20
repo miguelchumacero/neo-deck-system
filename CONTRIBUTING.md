@@ -25,7 +25,7 @@ duro en la plantilla — trae forma + placeholder (regla anti-alucinación, `PLA
 theme (tokens) → primitives → components → patterns
 ```
 
-Un componente usa `var(--neo-*)`; nunca redefine un token ni sube de capa.
+Un componente usa `var(--<token>)` (p.ej. `var(--navy)`); nunca redefine un token ni sube de capa.
 
 ## Agregar un componente
 

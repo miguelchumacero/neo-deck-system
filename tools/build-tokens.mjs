@@ -59,7 +59,7 @@ walk(tokens.radius, ["radius"], (p, t) => {
   radius.push(`  --radius-${p[1]}: ${cssValue(t.$value)};`);
 });
 
-// Aliases legacy (var(--neo-*)/var(--r-*)) para autoría de componentes + paridad golden-pixel.
+// Aliases cortos (var(--navy)/var(--r-*)) para autoría de componentes.
 const legacy = [];
 walk(tokens.color, ["color"], (p) => {
   legacy.push(`  --${p[1]}: var(--color-${p[1]});`);
@@ -94,7 +94,7 @@ ${text.join("\n")}
 ${radius.join("\n")}
 }
 
-/* --- Aliases legacy + canvas: autoría de componentes con var(--neo-*) --- */
+/* --- Aliases cortos + canvas: autoría de componentes con var(--navy) --- */
 :root {
 ${legacy.join("\n")}
 }

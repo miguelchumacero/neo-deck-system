@@ -16,12 +16,12 @@
        <p class="body muted">Descripción del bloque.</p>
      </article> */
   .card {
-    background: var(--neo-white);
-    border: 1px solid var(--neo-border);
+    background: var(--white);
+    border: 1px solid var(--border);
     border-radius: var(--r-lg);
     padding: 40px;
   }
-  .card.soft { background: var(--neo-lila); border-color: transparent; }
+  .card.soft { background: var(--lila); border-color: transparent; }
 
   /* @component .client-panel — placeholder de logo/foto del cliente (portada, equipo).
      @example
@@ -30,7 +30,7 @@
        <span class="hint-sm">Reemplaza este panel por una imagen del cliente</span>
      </div> */
   .client-panel {
-    background: #ECECF2; border: 2px dashed var(--neo-border); border-radius: var(--r-xl);
+    background: #ECECF2; border: 2px dashed var(--border); border-radius: var(--r-xl);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     gap: 14px; text-align: center; padding: 48px;
   }

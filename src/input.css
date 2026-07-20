@@ -28,4 +28,4 @@
 /* Escala tipográfica como utilidades (además de las clases semánticas .hero/.h1). */
 @source inline("text-{hero,h1,h2,callout,lead,body,body-sm,eyebrow}");
 @source inline("font-{display,body}");
-@source inline("{bg,text,border}-{neo-navy,neo-blue,neo-blue-light,neo-lila,neo-white,neo-border}");
+@source inline("{bg,text,border}-{navy,blue,blue-light,lila,white,border}");

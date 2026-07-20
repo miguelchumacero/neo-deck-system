@@ -11,7 +11,7 @@ Versionado [SemVer](https://semver.org/lang/es/).
   texto, espacio, radii, canvas).
 - `tools/build-tokens.mjs` — deriva `src/theme.css` (@theme).
 - `src/theme.css` (generado) con el **cierre**: `--color-*/--text-*/--font-* : initial`
-  → solo tokens NEO generan utilidades. Aliases legacy `var(--neo-*)` para autoría.
+  → solo tokens NEO generan utilidades. Aliases cortos `var(--navy)` para autoría.
 - `src/primitives.css` — `.slide` (canvas 1920×1080), tipografía, cromo, `@font-face`.
 - `src/components.css` — starter (`.card`, `.pill`, `.client-panel`) + convención de doc.
 - `src/input.css` + safelist vía `@source inline` (layout curado) · `safelist.txt` (doc).
