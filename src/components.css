@@ -101,6 +101,43 @@
     color: var(--navy); margin: 0;
   }
 
+  /* @component .agenda — slide de agenda: panel izq navy (36%) con "Agenda", panel
+     der claro (64%) con .cobrand + lista numerada de secciones. FIJO: layout no se
+     rediseña; los items de .agenda-list se derivan de las secciones realmente
+     presentes en el deck (si se omite una sección, no va aquí) — no inventar puntos.
+     @example
+     <section class="slide" style="padding:0">
+       <div class="agenda">
+         <div class="agenda-intro"><h1 class="hero">Agenda</h1></div>
+         <div class="agenda-content">
+           <div class="cobrand">
+             <span class="client-logo">[[CLIENTE]]</span><span class="sep"></span>
+             <img src="../assets/logos/neo-logo-navy.png" alt="NEO · 25 años">
+           </div>
+           <div class="agenda-list">
+             <div class="agenda-item"><span class="n">01</span><span class="l">[[Contexto]]</span></div>
+             <div class="agenda-item"><span class="n">02</span><span class="l">[[El reto]]</span></div>
+           </div>
+         </div>
+       </div>
+     </section> */
+  .agenda { display: grid; grid-template-columns: 36% 64%; height: 100%; }
+  .agenda-intro {
+    @apply dark-surface;
+    display: flex; align-items: center; padding: 0 70px;
+  }
+  .agenda-intro .hero { font-size: 96px; }
+  .agenda-content { padding: 120px 100px 100px; }
+  .agenda-content .agenda-list { margin-top: 40px; }
+  .agenda-list { display: flex; flex-direction: column; }
+  .agenda-item {
+    display: grid; grid-template-columns: 110px 1fr; align-items: center; gap: 24px;
+    padding: 26px 0; border-top: 1px solid var(--border);
+  }
+  .agenda-item:last-child { border-bottom: 1px solid var(--border); }
+  .agenda-item .n { font-family: var(--font-body); font-weight: 700; font-size: 30px; color: var(--blue); }
+  .agenda-item .l { font-family: var(--font-display); font-weight: 700; font-size: 40px; color: var(--navy); }
+
   /* @component .divider — slide divisor de sección: fondo navy + patrón de puntos,
      título centrado (ambos ejes), logo NEO arriba-der y neoconsulting.ai abajo.
      Marca §7.4: navy permitido SOLO aquí + .cover + .closing. Reutilizable: solo
