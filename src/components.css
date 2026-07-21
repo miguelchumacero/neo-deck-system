@@ -67,6 +67,43 @@
     color: var(--blue-light);
   }
 
+  /* @component .proposal-cover — portada de propuesta (con cliente, fondo claro).
+     Grid 2 columnas: client-panel (logo/foto del cliente) + bloque de título.
+     FIJA template — swap [[CLIENTE]], título, subtítulo, mes/año, logo cliente.
+     No rediseñar el layout. Va dentro de <section class="slide"> junto al .cobrand
+     header (fondo claro, distinto de .cover/.divider/.closing que sí son navy).
+     @example
+     <section class="slide">
+       <div class="cobrand">
+         <span class="client-logo">[[CLIENTE]]</span>
+         <span class="sep"></span>
+         <img src="../assets/logos/neo-logo-navy.png" alt="NEO · 25 años">
+       </div>
+       <div class="proposal-cover">
+         <div class="client-panel" style="min-height:660px">
+           <span class="hint">Logo + foto del cliente</span>
+           <span class="hint-sm">Reemplaza este panel por una imagen del cliente</span>
+         </div>
+         <div class="proposal-cover-info">
+           <p class="proposal-cover-kicker">Propuesta</p>
+           <h1 class="h1">[[Título de la<br>propuesta]]<br><em class="acc">[[subtítulo italic]]</em></h1>
+           <p class="body muted">[[Cliente]] &nbsp;|&nbsp; [[Mes Año]]</p>
+         </div>
+       </div>
+     </section> */
+  .proposal-cover {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 90px;
+    height: 100%; align-items: center;
+  }
+  .proposal-cover-info {
+    display: flex; flex-direction: column; justify-content: space-between;
+    height: 660px; padding: 16px 0;
+  }
+  .proposal-cover-kicker {
+    font-family: var(--font-body); font-weight: 400; font-size: 32px;
+    color: var(--navy); margin: 0;
+  }
+
   /* @component .divider — slide divisor de sección: fondo navy + patrón de puntos,
      título centrado (ambos ejes), logo NEO arriba-der y neoconsulting.ai abajo.
      Marca §7.4: navy permitido SOLO aquí + .cover + .closing. Reutilizable: solo
