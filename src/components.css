@@ -37,6 +37,36 @@
   .client-panel .hint    { font-family: var(--font-body); font-weight: 600; font-size: 22px; color: #8A8AA2; }
   .client-panel .hint-sm { font-family: var(--font-body); font-weight: 400; font-size: 16px; color: #A6A6BC; }
 
+  /* @component .cover — portada de marca NEO (dark, FIJA verbatim salvo el tagline
+     oficial). Fondo navy + patrón de puntos. Logo + hero + tagline centrados,
+     url en el pie. Marca §7.4: navy permitido SOLO aquí + .divider + .closing.
+     @example
+     <section class="slide cover">
+       <img class="cover-logo" src="../assets/logos/neo-logo-white.png" alt="NEO · 25 años">
+       <h1 class="hero">Neo Consulting</h1>
+       <p class="cover-tagline">Logra tus objetivos de negocio utilizando data e inteligencia artificial</p>
+       <span class="cover-site">neoconsulting.ai</span>
+     </section> */
+  .cover {
+    background-color: var(--navy);
+    background-image: url("../assets/backgrounds/section-divider-dots.png");
+    background-size: cover; background-position: center;
+    color: var(--white);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center;
+  }
+  .cover-logo { height: 56px; width: auto; display: block; }
+  .cover .hero { margin-top: 76px; }
+  .cover-tagline {
+    font-family: var(--font-display); font-weight: 700; font-size: 40px; line-height: 1.4;
+    color: var(--white); margin: 36px 0 0; max-width: 1000px;
+  }
+  .cover-site {
+    position: absolute; bottom: 96px; left: 0; right: 0; text-align: center;
+    font-family: var(--font-body); font-weight: 500; font-size: 24px;
+    color: var(--blue-light);
+  }
+
   /* @component .divider — slide divisor de sección: fondo navy + patrón de puntos,
      título centrado (ambos ejes), logo NEO arriba-der y neoconsulting.ai abajo.
      Marca §7.4: navy permitido SOLO aquí + .cover + .closing. Reutilizable: solo
