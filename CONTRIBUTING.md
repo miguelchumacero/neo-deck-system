@@ -41,6 +41,16 @@ Un componente usa `var(--<token>)` (p.ej. `var(--navy)`); nunca redefine un toke
 
 Agregar un componente = **un solo sitio**. Aparece en galería + reference sin doble edición.
 
+## Tratamientos compartidos entre componentes
+
+Si un mismo bloque de CSS (fondo, superficie, cromo) se repite en **3 o más** componentes,
+factorízalo con `@utility` de Tailwind v4 en `primitives.css` y consúmelo con `@apply` desde
+cada componente. Ejemplo: `.cover`, `.divider`, `.closing` y `.slide.dark-bg` comparten el
+fondo navy + patrón de puntos vía `@utility dark-surface`.
+
+No factorices con 1–2 muestras — esperá a tener el patrón real (3+ casos) antes de abstraer;
+con pocos casos es fácil elegir mal la forma de la abstracción.
+
 ## Layout / utilidades
 
 Solo el subset en `safelist.txt` (espejo de `@source inline` en `src/input.css`). Si
