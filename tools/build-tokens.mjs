@@ -67,6 +67,12 @@ walk(tokens.color, ["color"], (p) => {
 walk(tokens.radius, ["radius"], (p) => {
   legacy.push(`  --r-${p[1]}: var(--radius-${p[1]});`);
 });
+// Aliases semánticos (alias group): solo :root, NO utilidades. Valor literal, no var().
+if (tokens.alias) {
+  walk(tokens.alias, ["alias"], (p, t) => {
+    legacy.push(`  --${p[1]}: ${cssValue(t.$value)};`);
+  });
+}
 legacy.push(`  --slide-w: ${tokens.canvas.w.$value};`);
 legacy.push(`  --slide-h: ${tokens.canvas.h.$value};`);
 legacy.push(`  --gutter: ${tokens.space.gutter.$value};`);
@@ -101,4 +107,5 @@ ${legacy.join("\n")}
 `;
 await writeFile(OUT_CSS, css);
 
-console.log(`✓ theme.css  (${color.length} color, ${text.length} text lines, ${radius.length} radius)`);
+const aliasCount = tokens.alias ? Object.keys(tokens.alias).filter((k) => !k.startsWith("$")).length : 0;
+console.log(`✓ theme.css  (${color.length} color, ${text.length} text lines, ${radius.length} radius, ${aliasCount} alias)`);

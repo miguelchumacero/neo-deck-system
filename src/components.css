@@ -37,6 +37,30 @@
   .client-panel .hint    { font-family: var(--font-body); font-weight: 600; font-size: 22px; color: #8A8AA2; }
   .client-panel .hint-sm { font-family: var(--font-body); font-weight: 400; font-size: 16px; color: #A6A6BC; }
 
+  /* @component .divider — slide divisor de sección: fondo navy + patrón de puntos,
+     título centrado (ambos ejes), logo NEO arriba-der y neoconsulting.ai abajo.
+     Marca §7.4: navy permitido SOLO aquí + .cover + .closing. Reutilizable: solo
+     cambia el texto del <h1 class="hero">. El logo (.cobrand) y la url (.site) son
+     cromo constante. (Comparte superficie oscura con .slide.dark-bg de primitives.)
+     @example
+     <section class="slide divider">
+       <div class="cobrand"><img src="../assets/logos/neo-logo-white.png" alt="NEO · 25 años"></div>
+       <h1 class="hero">Nuestra propuesta</h1>
+       <span class="site">neoconsulting.ai</span>
+     </section> */
+  .divider {
+    background-color: var(--navy);
+    background-image: url("../assets/backgrounds/section-divider-dots.png");
+    background-size: cover; background-position: center;
+    color: var(--white);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center;
+  }
+  .divider .site {
+    font-family: var(--font-body); font-weight: 500; font-size: 24px;
+    color: var(--blue-light); margin-top: 72px;
+  }
+
   /* @component .pill — etiqueta / tag inline.
      @example
      <span class="pill">Fase 1</span> */

@@ -86,6 +86,11 @@
   --r-lg: var(--radius-lg);
   --r-xl: var(--radius-xl);
   --r-pill: var(--radius-pill);
+  --stage: #0B0B1A;
+  --fg3: #8A8AAA;
+  --fg-on-dark: rgba(255,255,255,0.75);
+  --fg-faint-on-dark: rgba(255,255,255,0.6);
+  --border-on-dark: rgba(255,255,255,0.18);
   --slide-w: 1920px;
   --slide-h: 1080px;
   --gutter: 100px;

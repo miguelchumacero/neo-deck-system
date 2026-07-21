@@ -15,7 +15,7 @@
   *, *::before, *::after { box-sizing: border-box; }
   html, body {
     margin: 0; padding: 0;
-    background: #0b0b1a;               /* escenario detrás de los slides */
+    background: var(--stage);          /* escenario detrás de los slides */
     font-family: var(--font-body);
     color: var(--navy);
   }
@@ -56,7 +56,7 @@
   .dark .eyebrow, .dark-bg .eyebrow { color: var(--blue-light); }
 
   .muted { color: var(--text-secondary); }
-  .dark .muted, .dark-bg .muted { color: rgba(255, 255, 255, .75); }
+  .dark .muted, .dark-bg .muted { color: var(--fg-on-dark); }
 
   em.acc { font-style: italic; color: var(--blue); font-weight: 700; }
   .dark em.acc, .dark-bg em.acc { color: var(--blue-light); }
@@ -79,7 +79,7 @@
     display: flex; justify-content: space-between;
     font-family: var(--font-body); font-weight: 500; font-size: 15px; color: var(--text-secondary);
   }
-  .dark .footer-meta, .dark-bg .footer-meta { color: rgba(255, 255, 255, .6); }
+  .dark .footer-meta, .dark-bg .footer-meta { color: var(--fg-faint-on-dark); }
 
   /* -------- Utilidades de composición de slide -------- */
   .stack    { display: flex; flex-direction: column; height: 100%; }
