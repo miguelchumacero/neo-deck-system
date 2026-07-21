@@ -57,8 +57,9 @@
     text-align: center;
   }
   .divider .site {
+    position: absolute; bottom: 220px; left: 0; right: 0; text-align: center;
     font-family: var(--font-body); font-weight: 500; font-size: 24px;
-    color: var(--blue-light); margin-top: 140px;
+    color: var(--blue-light);
   }
 
   /* @component .pill — etiqueta / tag inline.
