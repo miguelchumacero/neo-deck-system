@@ -48,10 +48,7 @@
        <span class="cover-site">neoconsulting.ai</span>
      </section> */
   .cover {
-    background-color: var(--navy);
-    background-image: url("../assets/backgrounds/section-divider-dots.png");
-    background-size: cover; background-position: center;
-    color: var(--white);
+    @apply dark-surface;
     display: flex; flex-direction: column; justify-content: center; align-items: center;
     text-align: center;
   }
@@ -116,10 +113,7 @@
        <span class="site">neoconsulting.ai</span>
      </section> */
   .divider {
-    background-color: var(--navy);
-    background-image: url("../assets/backgrounds/section-divider-dots.png");
-    background-size: cover; background-position: center;
-    color: var(--white);
+    @apply dark-surface;
     display: flex; flex-direction: column; justify-content: center; align-items: center;
     text-align: center;
   }
@@ -128,6 +122,37 @@
     font-family: var(--font-body); font-weight: 500; font-size: 28px;
     color: var(--blue-light);
   }
+
+  /* @component .closing — slide de cierre del deck: fondo navy + patrón de puntos,
+     logo NEO grande, tagline (.lead) y redes sociales. FIJA salvo el tagline (varía
+     según el objetivo del deck). Marca §7.4: navy permitido SOLO aquí + .cover + .divider.
+     @example
+     <section class="slide closing">
+       <img class="closing-logo" src="../assets/logos/neo-logo-white.png" alt="NEO Consulting · 25 años">
+       <p class="lead closing-tagline">[[Incrementamos tus ventas digitales utilizando data e inteligencia artificial]]</p>
+       <a class="closing-site" href="https://neoconsulting.ai">neoconsulting.ai</a>
+       <div class="socials">
+         <svg viewBox="0 0 24 24">...</svg>
+       </div>
+     </section> */
+  .closing {
+    @apply dark-surface;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; gap: 44px;
+  }
+  .closing-logo { height: 96px; width: auto; display: block; }
+  .closing-tagline { max-width: 900px; }
+  .closing-site {
+    font-family: var(--font-body); font-weight: 600; font-size: 24px;
+    color: var(--blue-light); text-decoration: underline; letter-spacing: .02em;
+  }
+
+  /* @component .socials — fila de íconos de redes (cierre).
+     @example
+     <div class="socials"><svg viewBox="0 0 24 24">...</svg></div> */
+  .socials { display: flex; gap: 52px; }
+  .socials svg { width: 68px; height: 68px; fill: var(--white); }
+  .closing .socials { margin-top: 110px; }
 
   /* @component .pill — etiqueta / tag inline.
      @example

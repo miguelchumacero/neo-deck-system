@@ -11,6 +11,16 @@
 @font-face { font-family: "PT Serif"; src: url("../assets/fonts/PTSerif-Bold.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
 @font-face { font-family: "PT Serif"; src: url("../assets/fonts/PTSerif-BoldItalic.ttf") format("truetype"); font-weight: 700; font-style: italic; font-display: swap; }
 
+/* Superficie navy + patrón de puntos — fuente única compartida por .slide.dark-bg
+   y los componentes oscuros (.cover, .divider, .closing). Cambia acá, propaga a los 4. */
+@utility dark-surface {
+  background-color: var(--navy);
+  background-image: url("../assets/backgrounds/section-divider-dots.png");
+  background-size: cover;
+  background-position: center;
+  color: var(--white);
+}
+
 @layer base {
   *, *::before, *::after { box-sizing: border-box; }
   html, body {
@@ -34,12 +44,7 @@
 
   /* Fondos navy — SOLO portada, divisores, cierre (regla de marca §7.4) */
   .slide.dark { background: var(--navy); color: var(--white); }
-  .slide.dark-bg {
-    background-color: var(--navy);
-    background-image: url("../assets/backgrounds/section-divider-dots.png");
-    background-size: cover; background-position: center;
-    color: var(--white);
-  }
+  .slide.dark-bg { @apply dark-surface; }
 
   /* -------- Tipografía (escala fija — utilidades text-* de theme) -------- */
   .hero    { @apply text-hero font-display; margin: 0; }
