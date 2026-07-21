@@ -132,27 +132,45 @@
        <p class="lead closing-tagline">[[Incrementamos tus ventas digitales utilizando data e inteligencia artificial]]</p>
        <a class="closing-site" href="https://neoconsulting.ai">neoconsulting.ai</a>
        <div class="socials">
-         <svg viewBox="0 0 24 24">...</svg>
+         <svg viewBox="0 0 48 48" aria-label="LinkedIn">
+           <rect class="social-badge-bg" width="48" height="48" rx="11"/>
+           <rect class="social-badge-fg" x="11" y="19" width="6" height="17"/>
+           <circle class="social-badge-fg" cx="14" cy="12.5" r="3.2"/>
+           <path class="social-badge-fg" d="M22.5 19h6v2.6c.9-1.7 3-2.9 5.6-2.9 5 0 6.4 3.1 6.4 7.9V36h-6v-8.4c0-2.2-.8-3.7-2.9-3.7-2.1 0-3.2 1.5-3.2 3.7V36h-6V19z"/>
+         </svg>
        </div>
      </section> */
   .closing {
     @apply dark-surface;
     display: flex; flex-direction: column; justify-content: center; align-items: center;
-    text-align: center; gap: 44px;
+    text-align: center;
   }
   .closing-logo { height: 96px; width: auto; display: block; }
-  .closing-tagline { max-width: 900px; }
+  .closing-tagline { max-width: 900px; margin-top: 80px; }
   .closing-site {
     font-family: var(--font-body); font-weight: 600; font-size: 24px;
     color: var(--blue-light); text-decoration: underline; letter-spacing: .02em;
+    margin-top: 64px;
   }
 
-  /* @component .socials — fila de íconos de redes (cierre).
+  /* @component .socials — fila de íconos de redes (cierre). Cada red es un badge
+     de 80×80: fondo blanco + glifo navy (.social-badge-bg/-fg), salvo Instagram
+     que es solo contorno blanco sobre el navy del fondo (.social-outline).
      @example
-     <div class="socials"><svg viewBox="0 0 24 24">...</svg></div> */
-  .socials { display: flex; gap: 52px; }
-  .socials svg { width: 68px; height: 68px; fill: var(--white); }
-  .closing .socials { margin-top: 110px; }
+     <div class="socials">
+       <svg viewBox="0 0 48 48" aria-label="Instagram">
+         <rect class="social-outline" x="6" y="6" width="36" height="36" rx="11"/>
+         <circle class="social-outline" cx="24" cy="24" r="8.6"/>
+         <circle class="social-outline-dot" cx="34.2" cy="13.8" r="1.9"/>
+       </svg>
+     </div> */
+  .socials { display: flex; gap: 96px; }
+  .socials svg { width: 80px; height: 80px; }
+  .social-badge-bg { fill: var(--white); }
+  .social-badge-fg { fill: var(--navy); }
+  .social-outline { fill: none; stroke: var(--white); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+  .social-outline-dot { fill: var(--white); }
+  .closing .socials { margin-top: 232px; }
 
   /* @component .pill — etiqueta / tag inline.
      @example
