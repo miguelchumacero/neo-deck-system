@@ -58,7 +58,7 @@
   }
   .divider .site {
     font-family: var(--font-body); font-weight: 500; font-size: 24px;
-    color: var(--blue-light); margin-top: 72px;
+    color: var(--blue-light); margin-top: 140px;
   }
 
   /* @component .pill — etiqueta / tag inline.
