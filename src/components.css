@@ -193,6 +193,7 @@
   /* @component .socials — fila de íconos de redes (cierre). Cada red es un badge
      de 80×80: fondo blanco + glifo navy (.social-badge-bg/-fg), salvo Instagram
      que es solo contorno blanco sobre el navy del fondo (.social-outline).
+     @preview dark-bg
      @example
      <div class="socials">
        <svg viewBox="0 0 48 48" aria-label="Instagram">

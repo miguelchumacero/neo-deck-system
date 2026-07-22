@@ -5,6 +5,18 @@ Versionado [SemVer](https://semver.org/lang/es/).
 
 ## [Unreleased]
 
+### Added — Fase 2 · Fuente única + docs (en curso)
+- `tools/build-docs.mjs` (`npm run docs`) — genera `reference/gallery.html` desde la
+  fuente única `src/components.css` (parse de `@component`/`@example` co-ubicados).
+  Mata el mantenimiento a mano de la galería (antes se desincronizaba). Un componente
+  nuevo = un solo sitio → aparece en la galería sin doble edición. Orden = orden de
+  aparición en `components.css`. Cada specimen: nombre + descripción + preview escalado
+  (`zoom .5`) + fuente HTML en `<details>`. Fragmentos (`.card`/`.pill`/…) se envuelven
+  en `<section class="slide">`; los `@example` que ya son slide completa se usan tal cual.
+- Convención `@preview <clases>` (opcional) en el comentario de un componente: clases
+  extra para el `<section>` wrapper del preview. Añadido `@preview dark-bg` a `.socials`
+  (fragmento que necesita fondo navy para verse).
+
 ### Added — Fase 1 · Paridad (en curso)
 - `tokens.json` — grupo `alias` (portado del neo-design-system, acotado a slides):
   `stage`, `fg3`, `fg-on-dark`, `fg-faint-on-dark`, `border-on-dark`. Emiten solo
