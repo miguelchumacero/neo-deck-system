@@ -268,6 +268,73 @@
     display: block;
   }
 
+  /* @component .partners — slide "Nuestros partners" (ecosistema). Fondo claro (lila).
+     Header (eyebrow + título + bajada) full-width arriba; body en 2 columnas:
+     izquierda = label + grid 2×2 de .partner-card (tiles claros con el logo a color
+     de cada plataforma), derecha = .partners-cert (panel navy con "Certificación:"
+     + círculo blanco con el sello B Corp). FIJO: layout no se rediseña; los logos son
+     contenido (assets/logos/partners/, a COLOR — no monocromo como .clients). El panel
+     navy es superficie de contraste local, no fondo de slide (la slide es clara).
+     @example
+     <section class="slide partners">
+       <div class="cobrand"><img src="../assets/logos/neo-logo-navy.png" alt="NEO · 25 años"></div>
+       <p class="eyebrow">Ecosistema</p>
+       <div class="partners-body">
+         <div class="partners-main">
+           <h2 class="h2">Nuestros partners</h2>
+           <p class="body muted partners-sub">Somos partners certificados de las principales plataformas de data, marketing e IA del mundo — y trabajamos con los modelos frontera de la industria.</p>
+           <p class="partners-label">Plataformas tecnológicas &amp; IA:</p>
+           <div class="partner-cards">
+             <div class="partner-card"><img src="../assets/logos/partners/google-cloud-partner.png" alt="Google Cloud Partner"></div>
+             <div class="partner-card"><img src="../assets/logos/partners/salesforce.png" alt="Salesforce"></div>
+             <div class="partner-card"><img src="../assets/logos/partners/google-marketing-sales-partner.png" alt="Google Marketing Platform Sales Partner"></div>
+             <div class="partner-card"><img src="../assets/logos/partners/vwo-abtasty.png" alt="VWO · AB Tasty"></div>
+           </div>
+         </div>
+         <aside class="partners-cert">
+           <p class="partners-cert-label">Certificación:</p>
+           <div class="cert-badge"><img src="../assets/logos/partners/bcorp.png" alt="Certified B Corporation"></div>
+         </aside>
+       </div>
+     </section> */
+  .partners { display: flex; flex-direction: column; }
+  .partners .eyebrow { margin-bottom: 16px; }
+  .partners-body {
+    flex: 1; min-height: 0; display: grid;
+    grid-template-columns: 1fr 610px; gap: 90px;
+  }
+  .partners-main { display: flex; flex-direction: column; }
+  .partners-sub { margin-top: 18px; max-width: 900px; }
+  .partners-label {
+    font-family: var(--font-body); font-weight: 700; font-size: 24px;
+    color: var(--navy); margin: 64px 0 24px;
+  }
+  .partner-cards {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px 30px;
+  }
+  .partner-card {
+    height: 130px; background: rgba(5, 5, 140, .05);
+    border: 1px solid var(--border); border-radius: var(--r-sm);
+    display: flex; align-items: center; justify-content: center; padding: 20px 32px;
+  }
+  .partner-card img { max-height: 84px; max-width: 100%; width: auto; object-fit: contain; display: block; }
+
+  .partners-cert {
+    background: var(--navy); border-radius: 40px;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 72px 48px;
+  }
+  .partners-cert-label {
+    font-family: var(--font-body); font-weight: 700; font-size: 28px;
+    color: var(--white); margin: 0;
+  }
+  .cert-badge {
+    margin: auto 0; width: 420px; max-width: 100%; aspect-ratio: 1;
+    background: var(--white); border-radius: var(--r-pill);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .cert-badge img { height: 300px; width: auto; object-fit: contain; display: block; }
+
   /* @component .pill — etiqueta / tag inline.
      @example
      <span class="pill">Fase 1</span> */
