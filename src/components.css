@@ -175,6 +175,19 @@
            <circle class="social-badge-fg" cx="14" cy="12.5" r="3.2"/>
            <path class="social-badge-fg" d="M22.5 19h6v2.6c.9-1.7 3-2.9 5.6-2.9 5 0 6.4 3.1 6.4 7.9V36h-6v-8.4c0-2.2-.8-3.7-2.9-3.7-2.1 0-3.2 1.5-3.2 3.7V36h-6V19z"/>
          </svg>
+         <svg viewBox="0 0 48 48" aria-label="Facebook">
+           <circle class="social-badge-bg" cx="24" cy="24" r="24"/>
+           <path class="social-badge-fg" d="M27.5 15.5h3.8v-5.2h-4.1c-4.3 0-6.9 2.6-6.9 6.9v3.1h-3.6v5.2h3.6V37h5.4V25.5h4.1l.7-5.2h-4.8v-2.6c0-1.4.8-2.2 1.8-2.2z"/>
+         </svg>
+         <svg viewBox="0 0 48 48" aria-label="Instagram">
+           <rect class="social-outline" x="6" y="6" width="36" height="36" rx="11"/>
+           <circle class="social-outline" cx="24" cy="24" r="8.6"/>
+           <circle class="social-outline-dot" cx="34.2" cy="13.8" r="1.9"/>
+         </svg>
+         <svg viewBox="0 0 48 48" aria-label="YouTube">
+           <rect class="social-badge-bg" width="48" height="48" rx="14"/>
+           <path class="social-badge-fg" d="M20 16.8v14.4l12.5-7.2z"/>
+         </svg>
        </div>
      </section> */
   .closing {
@@ -196,10 +209,24 @@
      @preview dark-bg
      @example
      <div class="socials">
+       <svg viewBox="0 0 48 48" aria-label="LinkedIn">
+         <rect class="social-badge-bg" width="48" height="48" rx="11"/>
+         <rect class="social-badge-fg" x="11" y="19" width="6" height="17"/>
+         <circle class="social-badge-fg" cx="14" cy="12.5" r="3.2"/>
+         <path class="social-badge-fg" d="M22.5 19h6v2.6c.9-1.7 3-2.9 5.6-2.9 5 0 6.4 3.1 6.4 7.9V36h-6v-8.4c0-2.2-.8-3.7-2.9-3.7-2.1 0-3.2 1.5-3.2 3.7V36h-6V19z"/>
+       </svg>
+       <svg viewBox="0 0 48 48" aria-label="Facebook">
+         <circle class="social-badge-bg" cx="24" cy="24" r="24"/>
+         <path class="social-badge-fg" d="M27.5 15.5h3.8v-5.2h-4.1c-4.3 0-6.9 2.6-6.9 6.9v3.1h-3.6v5.2h3.6V37h5.4V25.5h4.1l.7-5.2h-4.8v-2.6c0-1.4.8-2.2 1.8-2.2z"/>
+       </svg>
        <svg viewBox="0 0 48 48" aria-label="Instagram">
          <rect class="social-outline" x="6" y="6" width="36" height="36" rx="11"/>
          <circle class="social-outline" cx="24" cy="24" r="8.6"/>
          <circle class="social-outline-dot" cx="34.2" cy="13.8" r="1.9"/>
+       </svg>
+       <svg viewBox="0 0 48 48" aria-label="YouTube">
+         <rect class="social-badge-bg" width="48" height="48" rx="14"/>
+         <path class="social-badge-fg" d="M20 16.8v14.4l12.5-7.2z"/>
        </svg>
      </div> */
   .socials { display: flex; gap: 96px; }
@@ -230,6 +257,67 @@
            <div class="client-logos">
              <img src="../assets/logos/clients/bcp.png" alt="BCP">
              <img src="../assets/logos/clients/bbva.png" alt="BBVA">
+             <img src="../assets/logos/clients/mibanco.png" alt="Mibanco">
+             <img src="../assets/logos/clients/banco-falabella.png" alt="Banco Falabella">
+             <img src="../assets/logos/clients/rimac.png" alt="Rimac">
+             <img src="../assets/logos/clients/pacifico.png" alt="Pacífico">
+             <img src="../assets/logos/clients/interbank.png" alt="Interbank">
+             <img src="../assets/logos/clients/interseguro.png" alt="Interseguro">
+           </div>
+         </div>
+         <div class="client-sector">
+           <p class="client-sector-label">Retail &amp; Comercio</p>
+           <div class="client-logos">
+             <img src="../assets/logos/clients/falabella.png" alt="Falabella">
+             <img src="../assets/logos/clients/ripley.png" alt="Ripley">
+             <img src="../assets/logos/clients/cencosud.png" alt="Cencosud">
+             <img src="../assets/logos/clients/sodimac.png" alt="Sodimac">
+             <img src="../assets/logos/clients/spsa.png" alt="Supermercados Peruanos">
+             <img src="../assets/logos/clients/aruma.png" alt="Aruma">
+             <img src="../assets/logos/clients/cineplanet.png" alt="Cineplanet">
+           </div>
+         </div>
+         <div class="client-sector">
+           <p class="client-sector-label">Consumo Masivo &amp; Belleza</p>
+           <div class="client-logos">
+             <img src="../assets/logos/clients/nestle.png" alt="Nestlé">
+             <img src="../assets/logos/clients/alicorp.png" alt="Alicorp">
+             <img src="../assets/logos/clients/loreal.png" alt="L'Oréal">
+             <img src="../assets/logos/clients/natura.png" alt="Natura">
+             <img src="../assets/logos/clients/yanbal.png" alt="Yanbal">
+             <img src="../assets/logos/clients/belcorp.png" alt="Belcorp">
+             <img src="../assets/logos/clients/san-fernando.png" alt="San Fernando">
+           </div>
+         </div>
+         <div class="client-sector">
+           <p class="client-sector-label">Telecom &amp; Tecnología</p>
+           <div class="client-logos">
+             <img src="../assets/logos/clients/claro.png" alt="Claro">
+             <img src="../assets/logos/clients/entel.png" alt="Entel">
+             <img src="../assets/logos/clients/telefonica.png" alt="Telefónica">
+             <img src="../assets/logos/clients/canon.png" alt="Canon">
+           </div>
+         </div>
+         <div class="client-sector">
+           <p class="client-sector-label">Salud &amp; Educación</p>
+           <div class="client-logos">
+             <img src="../assets/logos/clients/abbott.png" alt="Abbott">
+             <img src="../assets/logos/clients/laureate.png" alt="Laureate">
+             <img src="../assets/logos/clients/clinica-internacional.png" alt="Clínica Internacional">
+             <img src="../assets/logos/clients/oncosalud.png" alt="Oncosalud">
+             <img src="../assets/logos/clients/utp.png" alt="UTP">
+             <img src="../assets/logos/clients/sanna.png" alt="Sanna">
+             <img src="../assets/logos/clients/auna.png" alt="Auna">
+             <img src="../assets/logos/clients/cibertec.png" alt="Cibertec">
+           </div>
+         </div>
+         <div class="client-sector">
+           <p class="client-sector-label">Industria, Medios &amp; Servicios</p>
+           <div class="client-logos">
+             <img src="../assets/logos/clients/pacasmayo.png" alt="Pacasmayo">
+             <img src="../assets/logos/clients/ferreycorp.png" alt="Ferreycorp">
+             <img src="../assets/logos/clients/incarail.png" alt="Inca Rail">
+             <img src="../assets/logos/clients/semana-economica.png" alt="Semana Económica">
            </div>
          </div>
        </div>

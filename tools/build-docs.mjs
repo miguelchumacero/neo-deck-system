@@ -69,13 +69,19 @@ function parse(css) {
   return comps;
 }
 
-/** Envuelve el @example en un <section class="slide"> si es un fragmento. */
-function frame(c) {
-  const html = c.example.trim();
-  if (/^<section\b/.test(html)) return c.example; // ya es una slide completa
-  const cls = ["slide", c.preview].filter(Boolean).join(" ");
-  const inner = c.example.split("\n").map((l) => "      " + l).join("\n");
-  return `<section class="${cls}">\n    <div class="stack">\n${inner}\n    </div>\n  </section>`;
+/**
+ * Un @example que empieza con <section> es una slide completa (1920×1080) → se
+ * renderiza en `.deck` (escalado con zoom). Un fragmento (.card/.pill/.socials…) NO
+ * lleva canvas 1080: iría con un mar de vacío. Se renderiza en un `.frag` auto-height
+ * (opcionalmente con las clases de @preview, ej. dark-bg → fondo navy).
+ */
+const isSlide = (c) => /^<section\b/.test(c.example.trim());
+
+function preview(c) {
+  const inner = c.example.split("\n").map((l) => "    " + l).join("\n");
+  if (isSlide(c)) return `    <div class="deck">\n${inner}\n    </div>`;
+  const cls = ["frag", c.preview].filter(Boolean).join(" ");
+  return `    <div class="${cls}">\n${inner}\n    </div>`;
 }
 
 const css = await readFile(SRC, "utf8");
@@ -88,9 +94,7 @@ const specimens = comps
         <code>${c.name}</code>
         <p>${esc(c.desc)}</p>
       </div>
-      <div class="deck">
-  ${frame(c)}
-      </div>
+${preview(c)}
       <details class="specimen-src">
         <summary>HTML</summary>
         <pre><code>${esc(c.example.trim())}</code></pre>
@@ -121,8 +125,14 @@ const html = `<!doctype html>
       background: #eeebfb; padding: 4px 10px; border-radius: 6px;
     }
     .specimen-meta p { margin: 8px 0 0; max-width: 900px; color: #4a4a60; font-size: 14px; }
-    /* Escala de preview: cada slide 1920×1080 se reduce para caber en pantalla. */
+    /* Slides completas (1920×1080): se reducen para caber en pantalla. */
     .deck { zoom: 0.5; width: max-content; }
+    /* Fragmentos (.card/.pill/.socials…): frame auto-height, sin canvas 1080. */
+    .frag {
+      background: #fff; border: 1px solid #e2e2ee; border-radius: 12px;
+      padding: 56px; display: flex; flex-wrap: wrap; align-items: center; gap: 32px;
+    }
+    .frag.dark-bg { background: #0b0b1a; border-color: transparent; }
     .specimen-src { margin-top: 12px; }
     .specimen-src summary { cursor: pointer; font-size: 12px; color: #6a6a80; }
     .specimen-src pre {
