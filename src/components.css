@@ -209,6 +209,65 @@
   .social-outline-dot { fill: var(--white); }
   .closing .socials { margin-top: 232px; }
 
+  /* @component .clients — slide "Nuestros Clientes" (track record). Fondo navy +
+     patrón de puntos, header (eyebrow + título + bajada) y grid 3×2 de sectores.
+     Cada .client-sector = label + regla + grid de logos (PNG blancos en assets/
+     logos/clients/). FIJO: layout no se rediseña; el roster de logos es contenido
+     que se actualiza. Los logos ya son blancos monocromo (portados del kit real).
+     Marca §7.4: navy permitido — es superficie de marca (track record institucional).
+     @example
+     <section class="slide clients">
+       <div class="cobrand"><img src="../assets/logos/neo-logo-white.png" alt="NEO · 25 años"></div>
+       <header class="clients-head">
+         <p class="eyebrow">Track Record</p>
+         <h1 class="h1">Nuestros Clientes</h1>
+         <p class="lead muted clients-sub">+100 empresas líderes en 15 sectores confían en NEO para transformar su negocio con data e inteligencia artificial.</p>
+       </header>
+       <div class="clients-grid">
+         <div class="client-sector">
+           <p class="client-sector-label">Banca, Seguros &amp; Finanzas</p>
+           <div class="client-logos">
+             <img src="../assets/logos/clients/bcp.png" alt="BCP">
+             <img src="../assets/logos/clients/bbva.png" alt="BBVA">
+           </div>
+         </div>
+       </div>
+     </section> */
+  .clients {
+    @apply dark-surface;
+    display: flex; flex-direction: column;
+  }
+  .clients-head { margin-bottom: 28px; }
+  .clients-head .h1 { margin: 6px 0 0; }
+  .clients-sub { margin-top: 14px; max-width: 1400px; }
+  .clients-grid {
+    flex: 1; min-height: 0; display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 24px;
+  }
+  .client-sector {
+    background: rgba(255, 255, 255, .055);
+    border: 1px solid var(--border-on-dark);
+    border-radius: var(--r-lg);
+    padding: 26px 32px;
+    display: flex; flex-direction: column; overflow: hidden;
+  }
+  .client-sector-label {
+    font-family: var(--font-body); font-weight: 700; font-size: 18px;
+    letter-spacing: .1em; text-transform: uppercase; color: var(--blue-light);
+    margin: 0 0 16px; padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-on-dark);
+  }
+  .client-logos {
+    flex: 1; display: flex; flex-wrap: wrap; align-items: center; align-content: center;
+    gap: 26px 40px;
+  }
+  .client-logos img {
+    height: 38px; max-width: 180px; width: auto; object-fit: contain;
+    display: block;
+  }
+
   /* @component .pill — etiqueta / tag inline.
      @example
      <span class="pill">Fase 1</span> */

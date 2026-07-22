@@ -21,6 +21,18 @@ Versionado [SemVer](https://semver.org/lang/es/).
   navy+puntos compartido por `.slide.dark-bg` + los 3 componentes dark. Factorizado
   recién con las 3 muestras completas (no antes, para no abstraer con 1-2 casos).
   Reglas compiladas verificadas idénticas antes/después.
+- `.agenda` — slide de agenda: split 36/64 (panel navy `dark-surface` + lista
+  numerada `.agenda-list`/`.agenda-item`), porteado 1:1 del kit. Verificado golden-pixel.
+- `.clients` — slide "Nuestros Clientes" (track record): fondo navy + grid 3×2 de
+  sectores (`.client-sector` + `.client-logos`). 38 logos reales (blancos monocromo)
+  portados de `samples/…SPSA.pptx` (slide39) a `assets/logos/clients/`, mapeados por
+  posición y verificados en navegador contra la referencia. Logos con alpha-boost
+  (gamma 0.6) para que el blanco de bordes finos no se apague sobre el navy; panel
+  `.client-sector` con superficie levemente más clara (`rgba(255,255,255,.055)`).
+  Fix texto claro-sobre-oscuro: `.clients` aplica `dark-surface` (utility) pero NO la
+  clase `.dark`/`.dark-bg`, así que los overrides `.dark-bg .eyebrow`/`.muted` de
+  primitives no matcheaban → eyebrow/subtítulo salían en color oscuro (invisibles).
+  Añadido `.clients` a esos selectores en `primitives.css`.
 
 ### Added — Fase 0 · Fundación
 - Scaffold del repo (`git init`, `package.json`, estructura de carpetas).

@@ -12,8 +12,18 @@ Thumbs.db
 .vscode/
 *.swp
 
+# Herramientas de IA / agentes (config local por dev, no se versiona)
+.codex/
+.claude/
+.cursor/
+.aider*
+
 # Artefactos temporales de visual regression (Fase 3) — el golden SÍ se versiona
 tests/**/*.actual.png
 tests/**/*.diff.png
+
+# Material fuente pesado (decks .pptx de referencia) — no es artefacto de la lib.
+# Los logos/assets que se extraen SÍ se versionan (assets/logos/clients/).
+samples/
 
 # NOTA: dist/ se versiona a propósito (artefacto publicado que consume neo-propuestas).
