@@ -335,6 +335,58 @@
   }
   .cert-badge img { height: 300px; width: auto; object-fit: contain; display: block; }
 
+  /* @component .why-neo — slide intro de sección "¿Por qué NEO?" (portado de
+     samples/…SPSA.pptx slide37). Fondo navy con GRADIENTE (glow azul arriba-izq →
+     navy base #19213D; NO el patrón de puntos de dark-surface). Título h1 (con
+     <em class="acc"> italic blue-light), bajada muted, y fila de 4 KPIs
+     (.why-neo-kpi: número blue-light + label blanco) separados por reglas verticales.
+     Superficie de marca institucional (como .clients). Texto claro vía overrides
+     .why-neo en primitives (.eyebrow/.muted/em.acc). FIJO el layout; los KPIs son
+     contenido que se actualiza (número + label).
+     @example
+     <section class="slide why-neo">
+       <div class="cobrand"><img src="../assets/logos/neo-logo-white.png" alt="NEO · 25 años"></div>
+       <h1 class="h1 why-neo-title">Logra tus objetivos de negocio<br>utilizando <em class="acc">data e inteligencia artificial</em></h1>
+       <p class="lead muted why-neo-sub">Combinamos estrategia, tecnología y talento AI-first para transformar empresas líderes en LATAM y convertir su ambición digital en resultados medibles.</p>
+       <div class="why-neo-kpis">
+         <div class="why-neo-kpi"><span class="kpi-num">+25</span><span class="kpi-label">Años de experiencia transformando negocios</span></div>
+         <div class="why-neo-kpi"><span class="kpi-num">+800</span><span class="kpi-label">Proyectos exitosos en los últimos 5 años</span></div>
+         <div class="why-neo-kpi"><span class="kpi-num">+100</span><span class="kpi-label">Clientes en 15 sectores distintos</span></div>
+         <div class="why-neo-kpi"><span class="kpi-num">100%</span><span class="kpi-label">Del staff certificado en IA</span></div>
+       </div>
+     </section> */
+  .why-neo {
+    background-color: #19213D;
+    background-image: radial-gradient(115% 125% at 6% -5%, #1E3E70 0%, #1A2647 34%, #19213D 60%);
+    color: var(--white);
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .why-neo-title { max-width: 1320px; }
+  .why-neo-sub { margin-top: 28px; max-width: 1180px; }
+  .why-neo-kpis {
+    position: relative;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    margin-top: 120px; max-width: 1640px;
+  }
+  .why-neo-kpi {
+    display: flex; flex-direction: column; padding-right: 40px;
+  }
+  .why-neo-kpi + .why-neo-kpi {
+    border-left: 1px solid var(--border-on-dark); padding-left: 48px;
+  }
+  .kpi-num {
+    font-family: var(--font-body); font-weight: 800; font-size: 104px; line-height: 1;
+    letter-spacing: -.02em; color: var(--blue-light);
+  }
+  .kpi-label {
+    font-family: var(--font-body); font-weight: 500; font-size: 19px; line-height: 1.35;
+    color: var(--white); margin-top: 22px; max-width: 240px;
+  }
+  .why-neo-kpis::after {
+    content: ""; position: absolute; left: 0; bottom: -36px; width: 886px; height: 1px;
+    background: rgba(255, 255, 255, .22);
+  }
+
   /* @component .pill — etiqueta / tag inline.
      @example
      <span class="pill">Fase 1</span> */

@@ -58,13 +58,13 @@
     @apply text-eyebrow font-body;
     text-transform: uppercase; color: var(--blue); margin: 0 0 20px;
   }
-  .dark .eyebrow, .dark-bg .eyebrow, .clients .eyebrow { color: var(--blue-light); }
+  .dark .eyebrow, .dark-bg .eyebrow, .clients .eyebrow, .why-neo .eyebrow { color: var(--blue-light); }
 
   .muted { color: var(--text-secondary); }
-  .dark .muted, .dark-bg .muted, .clients .muted { color: var(--fg-on-dark); }
+  .dark .muted, .dark-bg .muted, .clients .muted, .why-neo .muted { color: var(--fg-on-dark); }
 
   em.acc { font-style: italic; color: var(--blue); font-weight: 700; }
-  .dark em.acc, .dark-bg em.acc, .clients em.acc { color: var(--blue-light); }
+  .dark em.acc, .dark-bg em.acc, .clients em.acc, .why-neo em.acc { color: var(--blue-light); }
   strong { font-weight: 700; }
 
   /* -------- Cromo: co-branding header + footer -------- */
