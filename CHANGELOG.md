@@ -58,6 +58,32 @@ Versionado [SemVer](https://semver.org/lang/es/).
   "¿Por qué NEO?"); orden de slides alineado al deck real de `samples/` (se está
   portando de atrás hacia delante).
 
+### Changed
+- Escala tipográfica: **piso duro de 20pt** (≈27px). Subidos `body` 21→32px,
+  `lead` 28→36, `callout` 34→40, `body-sm` 18→29, `eyebrow` 15→27. Nuevo token
+  `text.legal` (21px, ≈15.75pt) como **excepción documentada** al piso — solo para
+  `.clauses` (`.clause-head`/`.clause-item`), cuyo texto legal denso no entra en el
+  canvas fijo 1920×1080 si sube al piso general. `theme.css` + `dist` regenerados.
+- Tokenizados todos los `font-size` hardcoded de `components.css`/`primitives.css`
+  a utilidades `--text-*` (client-panel, cover-site, closing-site, client-sector-label,
+  partners-label, kpi-label, clause-*, pill, cobrand, footer-meta). Los px que quedan
+  (cover-tagline 40, agenda 96/40/30, kpi-num 104…) son display sizes deliberados
+  ≥28px, sobre el piso.
+
+### Removed
+- Footer de paginación ("Slide 4") en `reference/gallery.html`. Los slides del deck NEO
+  **no llevan número de página** (decisión de marca). `.footer-meta` (primitive) se
+  mantiene para meta libre — no es contador de página.
+
+### Fixed
+- Franja horizontal clara en el filo inferior de los slides de fondo oscuro
+  (`.cover`/`.divider`/`.closing`/`.clients`, que comparten `dark-surface`). Causa: el
+  asset `assets/backgrounds/section-divider-dots.png` traía **bordes sucios horneados**
+  (fila gris arriba + tira gris/casi-blanca de 2px abajo) que con `background-size: cover`
+  caían en el borde del slide. Fix: recorte del PNG `1294×732` → `1294×727` (bordes
+  ahora dots navy limpios; ratio 1.779 ≈ slide 1.778). El render a 1920×1080 nativo
+  quedó verificado limpio; sin cambios de CSS.
+
 ### Added — Fase 0 · Fundación
 - Scaffold del repo (`git init`, `package.json`, estructura de carpetas).
 - `tokens/tokens.json` — fuente única W3C Design Tokens (color, tipografía, escala de
