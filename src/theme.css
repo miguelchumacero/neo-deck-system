@@ -42,18 +42,20 @@
   --text-h2: 56px;
   --text-h2--line-height: 1.1;
   --text-h2--font-weight: 700;
-  --text-callout: 34px;
+  --text-callout: 40px;
   --text-callout--line-height: 1.35;
-  --text-lead: 28px;
+  --text-lead: 36px;
   --text-lead--line-height: 1.5;
-  --text-body: 21px;
+  --text-body: 32px;
   --text-body--line-height: 1.55;
-  --text-body-sm: 18px;
+  --text-body-sm: 29px;
   --text-body-sm--line-height: 1.55;
-  --text-eyebrow: 15px;
+  --text-eyebrow: 27px;
   --text-eyebrow--line-height: 1.2;
   --text-eyebrow--letter-spacing: 0.16em;
   --text-eyebrow--font-weight: 600;
+  --text-legal: 21px;
+  --text-legal--line-height: 1.5;
 
   /* --- Radii --- */
   --radius-sm: 8px;

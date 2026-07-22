@@ -34,8 +34,8 @@
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     gap: 14px; text-align: center; padding: 48px;
   }
-  .client-panel .hint    { font-family: var(--font-body); font-weight: 600; font-size: 22px; color: #8A8AA2; }
-  .client-panel .hint-sm { font-family: var(--font-body); font-weight: 400; font-size: 16px; color: #A6A6BC; }
+  .client-panel .hint    { font-family: var(--font-body); font-weight: 600; font-size: var(--text-body-sm); color: #8A8AA2; }
+  .client-panel .hint-sm { font-family: var(--font-body); font-weight: 400; font-size: var(--text-eyebrow); color: #A6A6BC; }
 
   /* @component .cover — portada de marca NEO (dark, FIJA verbatim salvo el tagline
      oficial). Fondo navy + patrón de puntos. Logo + hero + tagline centrados,
@@ -60,7 +60,7 @@
   }
   .cover-site {
     position: absolute; bottom: 96px; left: 0; right: 0; text-align: center;
-    font-family: var(--font-body); font-weight: 500; font-size: 24px;
+    font-family: var(--font-body); font-weight: 500; font-size: var(--text-eyebrow);
     color: var(--blue-light);
   }
 
@@ -185,7 +185,7 @@
   .closing-logo { height: 96px; width: auto; display: block; }
   .closing-tagline { max-width: 900px; margin-top: 80px; }
   .closing-site {
-    font-family: var(--font-body); font-weight: 600; font-size: 24px;
+    font-family: var(--font-body); font-weight: 600; font-size: var(--text-eyebrow);
     color: var(--blue-light); text-decoration: underline; letter-spacing: .02em;
     margin-top: 64px;
   }
@@ -254,7 +254,7 @@
     display: flex; flex-direction: column; overflow: hidden;
   }
   .client-sector-label {
-    font-family: var(--font-body); font-weight: 700; font-size: 18px;
+    font-family: var(--font-body); font-weight: 700; font-size: var(--text-body-sm);
     letter-spacing: .1em; text-transform: uppercase; color: var(--blue-light);
     margin: 0 0 16px; padding-bottom: 16px;
     border-bottom: 1px solid var(--border-on-dark);
@@ -306,7 +306,7 @@
   .partners-main { display: flex; flex-direction: column; }
   .partners-sub { margin-top: 18px; max-width: 900px; }
   .partners-label {
-    font-family: var(--font-body); font-weight: 700; font-size: 24px;
+    font-family: var(--font-body); font-weight: 700; font-size: var(--text-body-sm);
     color: var(--navy); margin: 64px 0 24px;
   }
   .partner-cards {
@@ -379,7 +379,7 @@
     letter-spacing: -.02em; color: var(--blue-light);
   }
   .kpi-label {
-    font-family: var(--font-body); font-weight: 500; font-size: 19px; line-height: 1.35;
+    font-family: var(--font-body); font-weight: 500; font-size: var(--text-body-sm); line-height: 1.35;
     color: var(--white); margin-top: 22px; max-width: 240px;
   }
   .why-neo-kpis::after {
@@ -394,6 +394,9 @@
      sin bullet; `.clause-item` = viñeta (•) con lead-in opcional en <strong>. Texto
      denso navy. Variante 2 columnas: envolver las listas en `.clauses-cols`. FIJO el
      formato; el contenido (cláusulas) se deriva del deck real, no se inventa.
+     Tipografía: usa `--text-legal` (21px/15.75pt) — EXCEPCIÓN documentada al piso de
+     20pt de la escala general (§tokens.json). Con el piso general (29px) el texto real
+     de estas 2 slides no entra en el canvas fijo 1920×1080 sin overflow.
      @example
      <section class="slide clauses">
        <div class="cobrand"><img src="../assets/logos/neo-logo-navy.png" alt="NEO · 25 años"></div>
@@ -419,12 +422,12 @@
   .clause-group + .clause-group { margin-top: 34px; }
   .clause-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
   .clause-head {
-    font-family: var(--font-body); font-weight: 700; font-size: 21px; line-height: 1.45;
+    font-family: var(--font-body); font-weight: 700; font-size: var(--text-legal); line-height: 1.45;
     color: var(--navy); margin: 0 0 16px;
   }
   .clause-item {
     position: relative; padding-left: 30px; margin: 0 0 15px;
-    font-family: var(--font-body); font-weight: 400; font-size: 21px; line-height: 1.5;
+    font-family: var(--font-body); font-weight: 400; font-size: var(--text-legal); line-height: 1.5;
     color: var(--navy);
   }
   .clause-item::before {
@@ -439,7 +442,7 @@
     display: inline-block;
     background: #EEEBFB; border: 1px solid #D9D4F4; color: #5B5BB0;
     box-shadow: 0 3px 10px rgba(30, 20, 80, .12);
-    font-family: var(--font-body); font-weight: 700; font-size: 16px;
+    font-family: var(--font-body); font-weight: 700; font-size: var(--text-eyebrow);
     letter-spacing: .06em; text-transform: uppercase;
     padding: 11px 24px; border-radius: var(--r-pill);
   }

@@ -75,14 +75,14 @@
   .cobrand img { height: 100%; width: auto; display: block; }
   .cobrand .client-logo {
     height: 52px; display: flex; align-items: center;
-    font-family: var(--font-body); font-weight: 700; font-size: 26px; color: var(--navy);
+    font-family: var(--font-body); font-weight: 700; font-size: var(--text-body-sm); color: var(--navy);
   }
   .cobrand .sep { width: 1px; height: 38px; background: var(--border); }
 
   .footer-meta {
     position: absolute; bottom: 56px; left: var(--gutter); right: var(--gutter);
     display: flex; justify-content: space-between;
-    font-family: var(--font-body); font-weight: 500; font-size: 15px; color: var(--text-secondary);
+    font-family: var(--font-body); font-weight: 500; font-size: var(--text-eyebrow); color: var(--text-secondary);
   }
   .dark .footer-meta, .dark-bg .footer-meta { color: var(--fg-faint-on-dark); }
 
