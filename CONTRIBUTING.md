@@ -51,6 +51,26 @@ fondo navy + patrón de puntos vía `@utility dark-surface`.
 No factorices con 1–2 muestras — esperá a tener el patrón real (3+ casos) antes de abstraer;
 con pocos casos es fácil elegir mal la forma de la abstracción.
 
+## Texto claro sobre superficie oscura
+
+Los overrides de color claro para texto sobre navy (`.eyebrow` → blue-light, `.muted` →
+fg-on-dark, `em.acc` → blue-light) en `primitives.css` están atados a las clases `.dark` /
+`.dark-bg`. Un componente con superficie oscura **propia** (que aplica `@utility dark-surface`
+o un gradiente, pero NO la clase `.dark`/`.dark-bg`) **no hereda** esos overrides → eyebrow /
+subtítulo salen en su color oscuro default e invisibles.
+
+Fix: agregá el nombre del componente a esos selectores en `primitives.css`
+(`.dark .eyebrow, .dark-bg .eyebrow, .clients .eyebrow, .why-neo .eyebrow { … }`). Ya aplicado
+para `.clients` y `.why-neo`; repetí para cada nuevo componente oscuro sin clase `.dark`.
+
+## Portar del deck real (no inventar)
+
+Los slides se portan del deck de producción en `samples/` (`.pptx`), no se inventan. Técnica:
+el `.pptx` es un zip → `unzip ppt/media/` para los assets, parsear `ppt/slides/slideN.xml`
+(posiciones EMU `<a:off>`/`<a:ext>`, dividir por **9525** para px sobre canvas 1920×1080;
+tamaños de fuente en pt × 1.333 ≈ px) + `slideN.xml.rels` (rId → imagen). Verificá el render
+en Chrome contra el slide real antes de dar por cerrado (regla anti-alucinación, `PLAN.md §9`).
+
 ## Layout / utilidades
 
 Solo el subset en `safelist.txt` (espejo de `@source inline` en `src/input.css`). Si

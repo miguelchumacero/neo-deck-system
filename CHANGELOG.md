@@ -33,6 +33,30 @@ Versionado [SemVer](https://semver.org/lang/es/).
   clase `.dark`/`.dark-bg`, así que los overrides `.dark-bg .eyebrow`/`.muted` de
   primitives no matcheaban → eyebrow/subtítulo salían en color oscuro (invisibles).
   Añadido `.clients` a esos selectores en `primitives.css`.
+- `.socials` (cierre) — íconos rediseñados como badge blanco + glifo navy
+  (`.social-badge-bg`/`-fg`), salvo Instagram que es solo contorno blanco
+  (`.social-outline`). Corregido desde una referencia explícita de Miguel (el kit
+  viejo tenía paths sólidos sin badge).
+- `.why-neo` — slide intro de sección "¿Por qué NEO?" (portado de slide37). NUEVA
+  superficie oscura: navy con **gradiente** radial (glow azul arriba-izq → base
+  `#19213D`), distinta de `dark-surface` (puntos). Título `.h1` con acento italic
+  blue-light, bajada `.muted`, y `.why-neo-kpis` (grid 4 col de `.why-neo-kpi`:
+  número `.kpi-num` blue-light + `.kpi-label`) con reglas divisoras. Overrides de
+  texto claro-sobre-oscuro: añadido `.why-neo` a `.eyebrow`/`.muted`/`em.acc` en
+  primitives (mismo patrón que `.clients`).
+- `.partners` — slide "Nuestros partners" / ecosistema (portado de slide38). Fondo
+  claro (`--lila`). Header + body 2 col (`.partners-body`): izq grid 2×2 de
+  `.partner-card` (tiles claros con logo a color), der `.partners-cert` (panel navy
+  + `.cert-badge` círculo blanco con sello B Corp). 5 logos a color en
+  `assets/logos/partners/`.
+- `.clauses` — slides de términos legales densos (portadas de slide34 Cláusulas
+  generales / slide35 Facturación por retrasos y pausas). Fondo claro, título `.h2`
+  con barra-acento azul (`.clauses-title`), cuerpo `.clause-list`: `.clause-head`
+  (subtítulo bold sin viñeta) + `.clause-item` (viñeta azul, lead-in en `<strong>`).
+  Variante 2 columnas vía `.clauses-cols`.
+- `reference/gallery.html` — divisor de sección reutilizado (`.divider` con texto
+  "¿Por qué NEO?"); orden de slides alineado al deck real de `samples/` (se está
+  portando de atrás hacia delante).
 
 ### Added — Fase 0 · Fundación
 - Scaffold del repo (`git init`, `package.json`, estructura de carpetas).
