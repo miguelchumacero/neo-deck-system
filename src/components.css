@@ -387,6 +387,51 @@
     background: rgba(255, 255, 255, .22);
   }
 
+  /* @component .clauses — slide de cláusulas / términos legales densos (fondo claro).
+     Portado de samples/…SPSA.pptx slide34 (Cláusulas generales) y slide35 (Facturación
+     por retrasos y pausas). Título `.h2` con barra-acento azul a la izq (.clauses-title).
+     Cuerpo = una o dos columnas de `.clause-list` (ul): `.clause-head` = subtítulo bold
+     sin bullet; `.clause-item` = viñeta (•) con lead-in opcional en <strong>. Texto
+     denso navy. Variante 2 columnas: envolver las listas en `.clauses-cols`. FIJO el
+     formato; el contenido (cláusulas) se deriva del deck real, no se inventa.
+     @example
+     <section class="slide clauses">
+       <div class="cobrand"><img src="../assets/logos/neo-logo-navy.png" alt="NEO · 25 años"></div>
+       <h2 class="h2 clauses-title">Cláusulas generales</h2>
+       <div class="clauses-body">
+         <div class="clause-group">
+           <p class="clause-head">Sobre las formas de pago:</p>
+           <ul class="clause-list">
+             <li class="clause-item">Los precios no incluyen impuestos (IGV).</li>
+             <li class="clause-item"><strong>Forma de facturación:</strong> 100% al inicio del proyecto.</li>
+           </ul>
+         </div>
+       </div>
+     </section> */
+  .clauses { display: flex; flex-direction: column; }
+  .clauses-title { position: relative; padding-left: 36px; }
+  .clauses-title::before {
+    content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+    width: 12px; height: 56px; background: var(--blue); border-radius: 3px;
+  }
+  .clauses-body { margin-top: 52px; flex: 1; min-height: 0; }
+  .clauses-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; }
+  .clause-group + .clause-group { margin-top: 34px; }
+  .clause-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+  .clause-head {
+    font-family: var(--font-body); font-weight: 700; font-size: 21px; line-height: 1.45;
+    color: var(--navy); margin: 0 0 16px;
+  }
+  .clause-item {
+    position: relative; padding-left: 30px; margin: 0 0 15px;
+    font-family: var(--font-body); font-weight: 400; font-size: 21px; line-height: 1.5;
+    color: var(--navy);
+  }
+  .clause-item::before {
+    content: "•"; position: absolute; left: 6px; top: 0; color: var(--blue); font-weight: 700;
+  }
+  .clause-item strong { font-weight: 700; }
+
   /* @component .pill — etiqueta / tag inline.
      @example
      <span class="pill">Fase 1</span> */
