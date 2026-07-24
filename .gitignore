@@ -26,8 +26,4 @@ tests/**/*.diff.png
 # Los logos/assets que se extraen SÍ se versionan (assets/logos/clients/).
 samples/
 
-# Copias pinneadas por versión: las genera scripts/deploy.sh desde dist/neo-ui.css
-# antes de subir la imagen. Derivadas → no se versionan.
-dist/neo-ui@*.css
-
 # NOTA: dist/neo-ui.css SÍ se versiona a propósito (artefacto publicado que consume neo-propuestas).

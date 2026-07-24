@@ -52,7 +52,8 @@ Componente = clase semántica. Layout = subset acotado de utilidades Tailwind. C
 - tokens (color / type / spacing / radii)
 - assets: fonts, logos, backgrounds (patrón de puntos), íconos
 - reglas de marca (dark/light/mixed · navy solo portada/divisor/cierre · 🚀 solo en Logros · es-PE)
-- componentes de slide + `fixed/` + galería + `neo-kit.js` (escalado en pantalla)
+- componentes de slide (los fijos incluidos: portadas, agenda, divisor, cierre, cláusulas…)
+  + galería generada + plantilla base del deck
 
 **No absorbe** (fuera de scope):
 - componentes web-generales: dashboards, reportes, KPI cards web, tablas web
@@ -114,7 +115,7 @@ Cambias un color en un lugar → propaga a CSS y docs. Mata la desincronización
 theme (tokens)          ← qué: color / type / space / radii
   └ primitives          ← tipografía, .slide (canvas 1920×1080), cromo (cobrand/footer)
       └ components       ← .card .cron .tl .case-card ...
-          └ patterns     ← composiciones de slide (fijos, bloque-central)
+          └ patterns     ← composiciones de slide (deck armado: reference/template.html)
 ```
 
 Cada capa depende solo de la de abajo. Un componente nunca hardcodea hex → solo
@@ -147,18 +148,21 @@ neo-ui/
     input.css            # entry (@import tailwind + theme + primitives + components)
   safelist.txt           # allowlist de utilidades de layout
   dist/
-    neo-ui@x.y.z.css     # precompilado, versionado (+ alias latest)
-  assets/                # fonts, logos, backgrounds, íconos (migrados)
-  fixed/                 # secciones locked (portadas, agenda, divisor, cronograma, cierre)
+    neo-ui.css           # precompilado (alias latest, versionado en git)
+    neo-ui@x.y.z.css     # copia pinneada que genera deploy.sh (derivada, gitignorada)
+  assets/                # fonts, logos (NEO, clientes, partners), backgrounds
   reference/
     template.html        # PLANTILLA BASE de propuesta (deck armado, authored a mano)
     gallery.html         # catálogo de componentes (GENERADO por build-docs)
-  neo-kit.js             # escalado en pantalla (sin cambios)
   tools/
     build-tokens.mjs     # tokens.json → theme.css
-    build-docs.mjs       # components.css → gallery + reference
-    lint.mjs             # gate de validación headless
-  tests/                 # visual regression + golden files
+    build-docs.mjs       # components.css → gallery
+    lint.mjs             # gate de validación headless (PENDIENTE — Fase 3)
+  Dockerfile             # nginx estático (webroot: index.html + dist + assets + reference + tokens)
+  default.conf           # CORS, MIME font/ttf, cache por tipo
+  index.html             # landing del servicio
+  scripts/deploy.sh      # build + docs + pin de versión + gcloud run deploy
+  tests/                 # visual regression + golden files (Fase 3)
   .github/workflows/ci.yml
   SKILL.md  README.md  CONTRIBUTING.md  CHANGELOG.md  PLAN.md
   package.json
@@ -196,7 +200,8 @@ dev). **El mantenedor buildea; el agente nunca buildea** — solo linkea `dist/n
 ### CI/CD
 
 PR corre: `build` (falla si no compila) → `lint.mjs` → **visual regression** (screenshot
-headless de `fixed/` + `gallery`, diff vs golden). Nada mergea si rompe el render.
+headless de `reference/gallery.html` + `reference/template.html`, diff vs golden). Nada mergea
+si rompe el render.
 Convierte la validación "a ojo" de hoy en gate mecánico.
 
 ---

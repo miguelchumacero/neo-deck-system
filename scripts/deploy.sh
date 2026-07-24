@@ -20,9 +20,13 @@ npm run docs
 
 # Copia pinneada por versión: un deck viejo linkea neo-ui@<version>.css y nunca se rompe
 # por un cambio del kit. dist/neo-ui.css queda como alias `latest` (solo para dev).
-# Las copias pinneadas no se versionan en git (se derivan del dist en cada deploy).
+# Las copias pinneadas SÍ se versionan en git: la imagen sirve todas las versiones pasadas,
+# así que subir de versión no deja en 404 a los decks ya emitidos. Commitea la copia nueva.
 echo "==> Copia pinneada: dist/neo-ui@${VERSION}.css"
 cp dist/neo-ui.css "dist/neo-ui@${VERSION}.css"
+if [[ -n "$(git status --porcelain "dist/neo-ui@${VERSION}.css" 2>/dev/null)" ]]; then
+  echo "    OJO: dist/neo-ui@${VERSION}.css cambió o es nuevo → commitealo tras el deploy."
+fi
 
 gcloud run deploy "$SERVICE" \
   --source . \

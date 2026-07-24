@@ -6,8 +6,8 @@
 hardcodees un hex, font-size o radio en CSS. Cambia el token → `npm run tokens` →
 propaga a `theme.css` y docs.
 
-**Nunca edites archivos generados:** `src/theme.css`, y `reference/gallery.html`
-(cuando pase a generado en Fase 2).
+**Nunca edites archivos generados:** `src/theme.css` (de `tokens.json`) y
+`reference/gallery.html` (de `components.css`). `reference/template.html` sí es a mano.
 
 ## Convención de nombres
 
@@ -81,7 +81,24 @@ necesitas una utilidad nueva, agrégala en **ambos** sitios. Arbitrary values
 
 ```bash
 npm run build   # debe compilar sin error
-npm run lint    # gate headless (Fase 3+)
+npm run docs    # regenera el catálogo si tocaste components.css
+npm run lint    # gate headless — OJO: tools/lint.mjs aún no existe (Fase 3)
 ```
+
+Chequeo de overflow mientras no exista el gate: renderizá headless y medí cada `.slide`
+forzando `overflow:visible` antes de medir `scrollHeight` — el `overflow:hidden` de `.slide`
+enmascara el desborde. Validá el arnés con una slide de control que sí desborde.
+
+## Publicar (servir el kit)
+
+```bash
+./scripts/deploy.sh     # build + docs + pin de versión + deploy a Cloud Run (servicio neo-ui)
+```
+
+El consumidor (`neo-propuestas`, resource `neo://maquetado`) linkea la **URL pinneada**
+`/dist/neo-ui@<version>.css`. Si el cambio rompe compatibilidad visual de decks ya emitidos,
+subí la versión en `package.json` **antes** de desplegar: la copia pinneada vieja seguirá
+sirviéndose sólo si la imagen la contiene, así que un deck viejo se re-pinnea o se re-maqueta.
+`dist/neo-ui.css` (alias latest) es sólo para dev.
 
 Versionado: semver del artefacto, `CHANGELOG.md` formato Keep a Changelog.

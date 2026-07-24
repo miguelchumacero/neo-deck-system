@@ -15,11 +15,13 @@ Versionado [SemVer](https://semver.org/lang/es/).
   el CSS pinneado, 7d imágenes, 5min alias/HTML, `nosniff`), `index.html` (landing),
   `.dockerignore`, `.gcloudignore`, `scripts/deploy.sh`.
 - **CSS pinneado por versión**: `deploy.sh` buildea, genera el catálogo y copia
-  `dist/neo-ui.css` → `dist/neo-ui@<version>.css` (derivada, gitignorada) antes de subir. El
-  consumidor pinnea (`/dist/neo-ui@0.1.0.css`) y un deck viejo no se rompe cuando el kit
-  avanza; `dist/neo-ui.css` queda como alias `latest` para dev.
-  `.gcloudignore` es explícito a propósito: sin él gcloud deriva uno de `.gitignore` y la
-  copia pinneada quedaría fuera de la imagen.
+  `dist/neo-ui.css` → `dist/neo-ui@<version>.css` antes de subir. El consumidor pinnea
+  (`/dist/neo-ui@0.1.0.css`) y un deck viejo no se rompe cuando el kit avanza;
+  `dist/neo-ui.css` queda como alias `latest` para dev. **Las copias pinneadas se versionan
+  en git**: así la imagen sirve también las versiones pasadas y subir de versión no deja en
+  404 a los decks ya emitidos (si fueran derivadas por deploy, la vieja desaparecía).
+  `.gcloudignore` es explícito a propósito: sin él gcloud deriva uno de `.gitignore` y lo
+  ignorado ahí quedaría fuera de la imagen sin aviso.
 - **Componentes de contenido portados del kit viejo** (cierran la paridad que el flujo de
   propuestas necesitaba para maquetar de punta a punta):
   - `.proc-card` — card de borde punteado (paso de proceso / slot `[a completar a mano]`).

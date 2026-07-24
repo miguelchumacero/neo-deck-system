@@ -51,8 +51,10 @@ npm run css:dev    # watch mode
 
 Servicio `neo-ui` (proyecto `brain-clientes`, `us-central1`), nginx estático, scale-to-zero.
 Webroot = `index.html` + `dist/` + `assets/` + `reference/` + `tokens/`. El deploy genera
-`dist/neo-ui@<version>.css` (pinneado, cache inmutable) además del alias `dist/neo-ui.css`.
-Consumidor: `neo-propuestas` (resource `neo://maquetado`) pinnea la versión.
+`dist/neo-ui@<version>.css` (pinneado, cache inmutable) además del alias `dist/neo-ui.css`;
+esa copia **se commitea**, así la imagen sirve todas las versiones pasadas y un deck emitido
+con una versión vieja nunca queda en 404. Consumidor: `neo-propuestas` (resource
+`neo://maquetado`) pinnea la versión.
 
 ### Pipeline
 
@@ -74,7 +76,7 @@ src/primitives.css · src/components.css · safelist ─────────
 | `src/components.css` | `@layer components` — los "Lego" de slide |
 | `src/input.css` | Entry de build + safelist (`@source inline`) |
 | `safelist.txt` | Allowlist legible de utilidades de layout |
-| `dist/neo-ui.css` | Artefacto precompilado |
+| `dist/neo-ui.css` | Artefacto precompilado (alias latest) + copias `neo-ui@x.y.z.css` pinneadas |
 | `assets/` | fonts, logos, backgrounds |
 | `reference/gallery.html` | Styleguide vivo |
 | `tools/` | `build-tokens.mjs`, `build-docs.mjs` (`lint.mjs` pendiente — Fase 3) |

@@ -1,6 +1,6 @@
-# Qué NO se sube a Cloud Build. Explícito a propósito: sin este archivo gcloud deriva
-# uno de .gitignore, y ahí están ignoradas las copias pinneadas (dist/neo-ui@*.css) que
-# scripts/deploy.sh genera justo antes del deploy — quedarían fuera de la imagen.
+# Qué NO se sube a Cloud Build. Explícito a propósito: sin este archivo gcloud deriva uno
+# de .gitignore, y cualquier cosa ignorada ahí (hoy node_modules, antes las copias pinneadas
+# del CSS) quedaría fuera de la imagen sin aviso.
 .git/
 .gitignore
 .gitattributes
