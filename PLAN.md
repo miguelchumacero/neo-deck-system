@@ -147,7 +147,8 @@ neo-ui/
   assets/                # fonts, logos, backgrounds, íconos (migrados)
   fixed/                 # secciones locked (portadas, agenda, divisor, cronograma, cierre)
   reference/
-    gallery.html         # styleguide vivo (generado)
+    template.html        # PLANTILLA BASE de propuesta (deck armado, authored a mano)
+    gallery.html         # catálogo de componentes (GENERADO por build-docs)
   neo-kit.js             # escalado en pantalla (sin cambios)
   tools/
     build-tokens.mjs     # tokens.json → theme.css

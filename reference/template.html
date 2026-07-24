@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="es-PE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>neo-ui · plantilla base de propuesta</title>
+  <link rel="stylesheet" href="../dist/neo-ui.css">
+  <!-- PLANTILLA BASE (authored a mano). Deck armado en orden real que toda propuesta
+       clona: cover → proposal-cover → agenda → showcase → divider → cláusulas →
+       divider → why-neo → partners → clients → closing. Editar a mano; NO se genera.
+       El catálogo de componentes (uno por bloque) es reference/gallery.html (ese SÍ
+       se genera con `npm run docs` desde src/components.css — no editarlo a mano). -->
+  <style>
+    /* Solo escalado para preview en pantalla — no forma parte del kit. */
+    body { padding: 40px 0; overflow-x: hidden; }
+    .deck { zoom: 0.66; }
+  </style>
+</head>
+<body>
+  <div class="deck">
+
+    <!-- Slide 1 · Portada NEO · componente .cover (FIJA verbatim salvo el tagline) -->
+    <section class="slide cover">
+      <img class="cover-logo" src="../assets/logos/neo-logo-white.png" alt="NEO · 25 años">
+      <h1 class="hero">Neo Consulting</h1>
+      <p class="cover-tagline">Logra tus objetivos de negocio utilizando data e inteligencia artificial</p>
+      <span class="cover-site">neoconsulting.ai</span>
+    </section>
+
+    <!-- Slide 2 · Portada de la propuesta · componente .proposal-cover (template) -->
+    <section class="slide">
+      <div class="cobrand">
+        <span class="client-logo">[[CLIENTE]]</span>
+        <span class="sep"></span>
+        <img src="../assets/logos/neo-logo-navy.png" alt="NEO · 25 años">
+      </div>
+      <div class="proposal-cover">
+        <div class="client-panel" style="min-height:660px;">
+          <span class="hint">Logo + foto del cliente</span>
+          <span class="hint-sm">Reemplaza este panel por una imagen del cliente</span>
+        </div>
+        <div class="proposal-cover-info">
+          <p class="proposal-cover-kicker">Propuesta</p>
+          <h1 class="h1">[[Título de la<br>propuesta]]<br><em class="acc">[[subtítulo italic]]</em></h1>
+          <p class="body muted">[[Cliente]] &nbsp;|&nbsp; [[Mes Año]]</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 3 · Agenda · componente .agenda (template FIJO, solo cambian los items) -->
+    <section class="slide" style="padding:0;">
+      <div class="agenda">
+        <div class="agenda-intro"><h1 class="hero">Agenda</h1></div>
+        <div class="agenda-content">
+          <div class="cobrand">
+            <span class="client-logo">[[CLIENTE]]</span>
+            <span class="sep"></span>
+            <img src="../assets/logos/neo-logo-navy.png" alt="NEO · 25 años">
+          </div>
+          <div class="agenda-list">
+            <div class="agenda-item"><span class="n">01</span><span class="l">[[Contexto]]</span></div>
+            <div class="agenda-item"><span class="n">02</span><span class="l">[[El reto]]</span></div>
+            <div class="agenda-item"><span class="n">03</span><span class="l">[[Nuestra propuesta]]</span></div>
+            <div class="agenda-item"><span class="n">04</span><span class="l">[[Nuestro proceso]]</span></div>
+            <div class="agenda-item"><span class="n">05</span><span class="l">[[Casos de éxito]]</span></div>
+            <div class="agenda-item"><span class="n">06</span><span class="l">[[Cronograma e inversión]]</span></div>
+            <div class="agenda-item"><span class="n">07</span><span class="l">[[¿Por qué NEO?]]</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 4 · Showcase de componentes (grid safelist + .card + .pill) -->
+    <section class="slide">
+      <div class="cobrand">
+        <img src="../assets/logos/neo-logo-navy.png" alt="NEO">
+      </div>
+      <div class="stack">
+        <p class="eyebrow">Componentes</p>
+        <h2 class="h1">Grid de <em class="acc">cards</em></h2>
+        <div class="grid grid-cols-3 gap-8" style="margin-top:56px">
+          <article class="card">
+            <span class="pill">Fase 0</span>
+            <h3 class="h2" style="margin-top:20px">Uno</h3>
+            <p class="body muted">Contenedor genérico sobre fondo claro.</p>
+          </article>
+          <article class="card soft">
+            <h3 class="h2">Dos</h3>
+            <p class="body muted">Variante <code>.card.soft</code> (fondo lila).</p>
+          </article>
+          <article class="card">
+            <h3 class="h2">Tres</h3>
+            <p class="body muted">Layout vía utilidades safelisteadas.</p>
+          </article>
+        </div>
+        <p class="callout push" style="color:var(--blue)">Escala tipográfica fija, cero hex crudo.</p>
+      </div>
+      <div class="footer-meta"><span>neo-ui · galería seed</span></div>
+    </section>
+
+    <!-- Slide 5 · Divisor de sección · componente .divider (solo cambia el título) -->
+    <section class="slide divider">
+      <div class="cobrand"><img src="../assets/logos/neo-logo-white.png" alt="NEO · 25 años"></div>
+      <h1 class="hero">Nuestra propuesta</h1>
+      <span class="site">neoconsulting.ai</span>
+    </section>
+
+    <!-- Slide 6 · Cláusulas generales · componente .clauses (1 columna, texto legal denso) -->
+    <section class="slide clauses">
+      <div class="cobrand"><img src="../assets/logos/neo-logo-navy.png" alt="NEO · 25 años"></div>
+      <h2 class="h2 clauses-title">Cláusulas generales</h2>
+      <div class="clauses-body">
+        <div class="clause-group">
+          <p class="clause-head">Sobre los alcances y tiempos del proyecto:</p>
+          <ul class="clause-list">
+            <li class="clause-item">Tiempos de aceptación de entregables: Una vez realizado algún entregable por el lado de NEO, el cliente tendrá hasta 05 días útiles para, con la justificación adecuada, solicitar ajustes sobre el entregable. Pasado este tiempo se considerará esta etapa como correctamente finalizada.</li>
+            <li class="clause-item">Conformidad de cierre del proyecto: Una vez finalizado el proyecto se enviará un acta de conformidad de cierre para ser revisada y aceptada por el cliente. De no tener respuesta, pasados los 05 días útiles de enviada el acta, se considerará el proyecto correctamente finalizado.</li>
+            <li class="clause-item">En caso de requerimientos adicionales que escapen del alcance del proyecto, se generará un cobro adicional, considerando la tarifa por hora promedio del proyecto.</li>
+            <li class="clause-item">Las implementaciones técnicas son desarrolladas por el equipo del cliente, si el equipo de implementación no realiza las mejoras en el tiempo estimado, es responsabilidad del cliente el retraso que ocasione.</li>
+            <li class="clause-item">Si existiese un retraso en el avance del proyecto y este es responsabilidad del cliente, las fechas de facturación se mantienen según contrato.</li>
+            <li class="clause-item">El proyecto se dará inicio una vez se tenga la firma del contrato.</li>
+            <li class="clause-item">El horario de consultas y reuniones será de Lunes a Viernes entre las 9.00am y 6.00pm.</li>
+            <li class="clause-item">Una vez aprobada la propuesta se establece que durante el período de desarrollo del servicio y 6 meses después de culminado el mismo, ninguna de las partes podrá contratar a miembros del equipo asignado al proyecto.</li>
+          </ul>
+        </div>
+        <div class="clause-group">
+          <p class="clause-head">Sobre las formas de pago:</p>
+          <ul class="clause-list">
+            <li class="clause-item">Los precios no incluyen impuestos (IGV).</li>
+            <li class="clause-item">Los precios considerados tienen vigencia hasta 30 días después de presentada la propuesta.</li>
+            <li class="clause-item">Forma de facturación del proyecto: 100% al inicio del proyecto.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 7 · Facturación por retrasos y pausas · componente .clauses (2 columnas) -->
+    <section class="slide clauses">
+      <div class="cobrand"><img src="../assets/logos/neo-logo-navy.png" alt="NEO · 25 años"></div>
+      <h2 class="h2 clauses-title">Facturación por retrasos y pausas</h2>
+      <div class="clauses-body">
+        <div class="clauses-cols">
+          <ul class="clause-list">
+            <li class="clause-item"><strong>Retrasos del lado de cliente:</strong> Si el proyecto mantuviera una facturación por hitos o por entregables y presenta un retraso del lado de cliente mayor a 15 días, este no deberá afectar la facturación programada.</li>
+            <li class="clause-item"><strong>Ingreso en stand by:</strong> El periodo de stand by en un proyecto se define como el tiempo durante el cual no se realizan avances en la ejecución del mismo. Si el proyecto presenta un retraso de lado del cliente mayor a 30 días, automáticamente el proyecto ingresa en un periodo de stand by.</li>
+            <li class="clause-item">Periodo Mínimo de Stand By: El cliente acepta que, una vez que el proyecto haya sido iniciado, se establecerá un periodo mínimo de stand by durante el cual el proyecto se mantendrá en espera. Durante este periodo, ambas partes acuerdan que no se realizarán avances significativos en la ejecución del proyecto. El periodo mínimo de stand by será de 20 días.</li>
+            <li class="clause-item"><strong>Periodo Máximo de Stand By:</strong> A su vez, el cliente comprende y acepta que existe un límite razonable para la duración del stand by. Por lo tanto, se establece un periodo máximo de stand by durante el cual el proyecto puede permanecer en espera. Este periodo máximo será establecido de común acuerdo entre ambas partes al momento de la firma del contrato y deberá ser especificado en días o semanas, con un máximo de 3 meses.</li>
+          </ul>
+          <ul class="clause-list">
+            <li class="clause-item"><strong>Facturación:</strong> En caso de que existan pagos pendientes por parte del cliente programados durante el periodo de stand by, se acuerda que dichos pagos deberán ser realizados antes del ingreso al periodo de stand by para aquellos proyectos que se facturan por hitos, o de acuerdo al cronograma establecido para proyectos con facturación mensual. Ambas partes reconocen que el cumplimiento de los compromisos financieros es fundamental para mantener la continuidad y progreso del proyecto.</li>
+            <li class="clause-item"><strong>Revisión y Renegociación:</strong> Transcurrido el periodo máximo de stand by sin que se haya logrado reanudar el proyecto, ambas partes se comprometen a revisar la situación y a renegociar los términos del contrato. Durante esta revisión, se evaluarán las circunstancias que han llevado al stand by prolongado y se determinará si el proyecto debe continuar, modificar o finalizar de manera justa y equitativa para ambas partes.</li>
+            <li class="clause-item"><strong>Notificación y Comunicación:</strong> En caso de que se requiera o se prevea un periodo de stand by, ambas partes se comprometen a notificar por escrito a la contraparte con una antelación razonable de 15 días. Asimismo, durante el periodo de stand by, las partes mantendrán una comunicación abierta y regular para evaluar la situación, discutir posibles soluciones y asegurar el cumplimiento de los pagos pendientes antes de la reanudación del proyecto.</li>
+            <li class="clause-item"><strong>Reanudación:</strong> Para reanudar el proyecto, el cliente deberá enviar un correo solicitando ello. El proyecto se reanudará en un plazo máximo de 15 días hábiles de presentada la solicitud.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 8 · Divisor de sección · componente .divider (reuso, solo cambia el título) -->
+    <section class="slide divider">
+      <div class="cobrand"><img src="../assets/logos/neo-logo-white.png" alt="NEO · 25 años"></div>
+      <h1 class="hero">¿Por qué NEO?</h1>
+      <span class="site">neoconsulting.ai</span>
+    </section>
+
+    <!-- Slide 9 · ¿Por qué NEO? · componente .why-neo (intro de sección, KPIs, fondo gradient) -->
+    <section class="slide why-neo">
+      <div class="cobrand"><img src="../assets/logos/neo-logo-white.png" alt="NEO · 25 años"></div>
+      <h1 class="h1 why-neo-title">Logra tus objetivos de negocio<br>utilizando <em class="acc">data e inteligencia artificial</em></h1>
+      <p class="lead muted why-neo-sub">Combinamos estrategia, tecnología y talento AI-first para transformar empresas líderes en LATAM y convertir su ambición digital en resultados medibles.</p>
+      <div class="why-neo-kpis">
+        <div class="why-neo-kpi"><span class="kpi-num">+25</span><span class="kpi-label">Años de experiencia transformando negocios</span></div>
+        <div class="why-neo-kpi"><span class="kpi-num">+800</span><span class="kpi-label">Proyectos exitosos en los últimos 5 años</span></div>
+        <div class="why-neo-kpi"><span class="kpi-num">+100</span><span class="kpi-label">Clientes en 15 sectores distintos</span></div>
+        <div class="why-neo-kpi"><span class="kpi-num">100%</span><span class="kpi-label">Del staff certificado en IA</span></div>
+      </div>
+    </section>
+
+    <!-- Slide 10 · Nuestros partners · componente .partners (ecosistema, fondo claro) -->
+    <section class="slide partners">
+      <div class="cobrand"><img src="../assets/logos/neo-logo-navy.png" alt="NEO · 25 años"></div>
+      <p class="eyebrow">Ecosistema</p>
+      <div class="partners-body">
+        <div class="partners-main">
+          <h2 class="h2">Nuestros partners</h2>
+          <p class="body muted partners-sub">Somos partners certificados de las principales plataformas de data, marketing e IA del mundo — y trabajamos con los modelos frontera de la industria.</p>
+          <p class="partners-label">Plataformas tecnológicas &amp; IA:</p>
+          <div class="partner-cards">
+            <div class="partner-card"><img src="../assets/logos/partners/google-cloud-partner.png" alt="Google Cloud Partner"></div>
+            <div class="partner-card"><img src="../assets/logos/partners/salesforce.png" alt="Salesforce"></div>
+            <div class="partner-card"><img src="../assets/logos/partners/google-marketing-sales-partner.png" alt="Google Marketing Platform Sales Partner"></div>
+            <div class="partner-card"><img src="../assets/logos/partners/vwo-abtasty.png" alt="VWO · AB Tasty"></div>
+          </div>
+        </div>
+        <aside class="partners-cert">
+          <p class="partners-cert-label">Certificación:</p>
+          <div class="cert-badge"><img src="../assets/logos/partners/bcorp.png" alt="Certified B Corporation"></div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Slide 11 · Nuestros Clientes · componente .clients (track record, roster real del kit) -->
+    <section class="slide clients">
+      <div class="cobrand"><img src="../assets/logos/neo-logo-white.png" alt="NEO · 25 años"></div>
+      <header class="clients-head">
+        <p class="eyebrow">Track Record</p>
+        <h1 class="h1">Nuestros Clientes</h1>
+        <p class="lead muted clients-sub">+100 empresas líderes en 15 sectores confían en NEO para transformar su negocio con data e inteligencia artificial.</p>
+      </header>
+      <div class="clients-grid">
+        <div class="client-sector">
+          <p class="client-sector-label">Banca, Seguros &amp; Finanzas</p>
+          <div class="client-logos">
+            <img src="../assets/logos/clients/bcp.png" alt="BCP">
+            <img src="../assets/logos/clients/bbva.png" alt="BBVA">
+            <img src="../assets/logos/clients/mibanco.png" alt="Mibanco">
+            <img src="../assets/logos/clients/banco-falabella.png" alt="Banco Falabella">
+            <img src="../assets/logos/clients/rimac.png" alt="Rimac">
+            <img src="../assets/logos/clients/pacifico.png" alt="Pacífico">
+            <img src="../assets/logos/clients/interbank.png" alt="Interbank">
+            <img src="../assets/logos/clients/interseguro.png" alt="Interseguro">
+          </div>
+        </div>
+        <div class="client-sector">
+          <p class="client-sector-label">Retail &amp; Comercio</p>
+          <div class="client-logos">
+            <img src="../assets/logos/clients/falabella.png" alt="Falabella">
+            <img src="../assets/logos/clients/ripley.png" alt="Ripley">
+            <img src="../assets/logos/clients/cencosud.png" alt="Cencosud">
+            <img src="../assets/logos/clients/sodimac.png" alt="Sodimac">
+            <img src="../assets/logos/clients/spsa.png" alt="Supermercados Peruanos">
+            <img src="../assets/logos/clients/aruma.png" alt="Aruma">
+            <img src="../assets/logos/clients/cineplanet.png" alt="Cineplanet">
+          </div>
+        </div>
+        <div class="client-sector">
+          <p class="client-sector-label">Consumo Masivo &amp; Belleza</p>
+          <div class="client-logos">
+            <img src="../assets/logos/clients/nestle.png" alt="Nestlé">
+            <img src="../assets/logos/clients/alicorp.png" alt="Alicorp">
+            <img src="../assets/logos/clients/loreal.png" alt="L'Oréal">
+            <img src="../assets/logos/clients/natura.png" alt="Natura">
+            <img src="../assets/logos/clients/yanbal.png" alt="Yanbal">
+            <img src="../assets/logos/clients/belcorp.png" alt="Belcorp">
+            <img src="../assets/logos/clients/san-fernando.png" alt="San Fernando">
+          </div>
+        </div>
+        <div class="client-sector">
+          <p class="client-sector-label">Telecom &amp; Tecnología</p>
+          <div class="client-logos">
+            <img src="../assets/logos/clients/claro.png" alt="Claro">
+            <img src="../assets/logos/clients/entel.png" alt="Entel">
+            <img src="../assets/logos/clients/telefonica.png" alt="Telefónica">
+            <img src="../assets/logos/clients/canon.png" alt="Canon">
+          </div>
+        </div>
+        <div class="client-sector">
+          <p class="client-sector-label">Salud &amp; Educación</p>
+          <div class="client-logos">
+            <img src="../assets/logos/clients/abbott.png" alt="Abbott">
+            <img src="../assets/logos/clients/laureate.png" alt="Laureate">
+            <img src="../assets/logos/clients/clinica-internacional.png" alt="Clínica Internacional">
+            <img src="../assets/logos/clients/oncosalud.png" alt="Oncosalud">
+            <img src="../assets/logos/clients/utp.png" alt="UTP">
+            <img src="../assets/logos/clients/sanna.png" alt="Sanna">
+            <img src="../assets/logos/clients/auna.png" alt="Auna">
+            <img src="../assets/logos/clients/cibertec.png" alt="Cibertec">
+          </div>
+        </div>
+        <div class="client-sector">
+          <p class="client-sector-label">Industria, Medios &amp; Servicios</p>
+          <div class="client-logos">
+            <img src="../assets/logos/clients/pacasmayo.png" alt="Pacasmayo">
+            <img src="../assets/logos/clients/ferreycorp.png" alt="Ferreycorp">
+            <img src="../assets/logos/clients/incarail.png" alt="Inca Rail">
+            <img src="../assets/logos/clients/semana-economica.png" alt="Semana Económica">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 12 · Cierre · componente .closing (FIJA salvo el tagline) -->
+    <section class="slide closing">
+      <img class="closing-logo" src="../assets/logos/neo-logo-white.png" alt="NEO Consulting · 25 años">
+      <p class="lead closing-tagline">Incrementamos tus ventas digitales utilizando data e inteligencia artificial</p>
+      <a class="closing-site" href="https://neoconsulting.ai">neoconsulting.ai</a>
+      <div class="socials">
+        <svg viewBox="0 0 48 48" aria-label="LinkedIn">
+          <rect class="social-badge-bg" width="48" height="48" rx="11"/>
+          <rect class="social-badge-fg" x="11" y="19" width="6" height="17"/>
+          <circle class="social-badge-fg" cx="14" cy="12.5" r="3.2"/>
+          <path class="social-badge-fg" d="M22.5 19h6v2.6c.9-1.7 3-2.9 5.6-2.9 5 0 6.4 3.1 6.4 7.9V36h-6v-8.4c0-2.2-.8-3.7-2.9-3.7-2.1 0-3.2 1.5-3.2 3.7V36h-6V19z"/>
+        </svg>
+        <svg viewBox="0 0 48 48" aria-label="Facebook">
+          <circle class="social-badge-bg" cx="24" cy="24" r="24"/>
+          <path class="social-badge-fg" d="M27.5 15.5h3.8v-5.2h-4.1c-4.3 0-6.9 2.6-6.9 6.9v3.1h-3.6v5.2h3.6V37h5.4V25.5h4.1l.7-5.2h-4.8v-2.6c0-1.4.8-2.2 1.8-2.2z"/>
+        </svg>
+        <svg viewBox="0 0 48 48" aria-label="Instagram">
+          <rect class="social-outline" x="6" y="6" width="36" height="36" rx="11"/>
+          <circle class="social-outline" cx="24" cy="24" r="8.6"/>
+          <circle class="social-outline-dot" cx="34.2" cy="13.8" r="1.9"/>
+        </svg>
+        <svg viewBox="0 0 48 48" aria-label="YouTube">
+          <rect class="social-badge-bg" width="48" height="48" rx="14"/>
+          <path class="social-badge-fg" d="M20 16.8v14.4l12.5-7.2z"/>
+        </svg>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>

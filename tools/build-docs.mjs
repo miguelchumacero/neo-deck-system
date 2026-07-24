@@ -108,7 +108,7 @@ const html = `<!doctype html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>neo-ui · galería (generada)</title>
+  <title>neo-ui · catálogo de componentes (generado)</title>
   <link rel="stylesheet" href="../dist/neo-ui.css">
   <style>
     /* Cromo de la galería — NO forma parte del kit. gallery.html es GENERADO
@@ -143,8 +143,8 @@ const html = `<!doctype html>
 </head>
 <body>
   <header class="gallery-head">
-    <h1>neo-ui · galería</h1>
-    <p>Generada desde <code>src/components.css</code> por <code>npm run docs</code>. ${comps.length} componentes.</p>
+    <h1>neo-ui · catálogo de componentes</h1>
+    <p>Generado desde <code>src/components.css</code> por <code>npm run docs</code> — ${comps.length} componentes. No editar a mano. La plantilla base de propuesta (deck armado) es <code>reference/template.html</code>.</p>
   </header>
   <div class="specimens">
 ${specimens}

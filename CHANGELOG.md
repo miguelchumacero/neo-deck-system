@@ -6,13 +6,17 @@ Versionado [SemVer](https://semver.org/lang/es/).
 ## [Unreleased]
 
 ### Added — Fase 2 · Fuente única + docs (en curso)
-- `tools/build-docs.mjs` (`npm run docs`) — genera `reference/gallery.html` desde la
-  fuente única `src/components.css` (parse de `@component`/`@example` co-ubicados).
-  Mata el mantenimiento a mano de la galería (antes se desincronizaba). Un componente
-  nuevo = un solo sitio → aparece en la galería sin doble edición. Orden = orden de
-  aparición en `components.css`. Cada specimen: nombre + descripción + preview escalado
-  (`zoom .5`) + fuente HTML en `<details>`. Fragmentos (`.card`/`.pill`/…) se envuelven
-  en `<section class="slide">`; los `@example` que ya son slide completa se usan tal cual.
+- `reference/template.html` — **plantilla base de propuesta** (deck armado en orden
+  real que toda propuesta clona). Es contenido authored a mano — NO se genera. Antes
+  vivía en `gallery.html`; se separó al introducir el catálogo generado para no
+  aplastarla. `gallery.html` pasa a ser el **catálogo de componentes** (generado).
+- `tools/build-docs.mjs` (`npm run docs`) — genera `reference/gallery.html` (catálogo
+  de componentes) desde la fuente única `src/components.css` (parse de `@component`/
+  `@example` co-ubicados). Fragmentos (`.card`/`.pill`/`.socials`…) se muestran en un
+  `.frag` auto-height; los `@example` que ya son `<section>` usan el canvas 1080.
+  Un componente nuevo = un solo sitio (`components.css`) → aparece en el catálogo sin
+  doble edición. Orden = orden de aparición en `components.css`. Cada specimen: nombre
+  + descripción + preview + fuente HTML en `<details>`.
 - Convención `@preview <clases>` (opcional) en el comentario de un componente: clases
   extra para el `<section>` wrapper del preview. Añadido `@preview dark-bg` a `.socials`
   (fragmento que necesita fondo navy para verse).
