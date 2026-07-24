@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es-PE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>neo-ui — design system de slides de NEO</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+         background:#000033; color:#F4F2FA; line-height:1.6; }
+  main { max-width:860px; margin:0 auto; padding:80px 28px; }
+  h1 { font-size:2.2rem; margin:0 0 6px; }
+  h2 { margin:44px 0 8px; font-size:1.05rem; color:#9DB0FF; text-transform:uppercase; letter-spacing:.08em; }
+  .muted { color:#9DB0FF; margin:0 0 40px; }
+  a { color:#9DB0FF; }
+  .card { display:block; padding:20px 24px; margin:12px 0; border:1px solid #2a2a5c;
+          border-radius:14px; text-decoration:none; color:inherit; background:#0a0a3a; }
+  .card:hover { border-color:#9DB0FF; }
+  .card b { color:#fff; }
+  code { background:#1a1a4a; padding:2px 7px; border-radius:6px; font-size:.9em; }
+  pre { background:#1a1a4a; padding:16px 18px; border-radius:10px; overflow-x:auto; font-size:.85em; }
+</style>
+</head>
+<body>
+<main>
+  <h1>neo-ui</h1>
+  <p class="muted">Design system de slides/decks de NEO Consulting · canvas 1920×1080 · un solo CSS precompilado.</p>
+
+  <h2>Ver</h2>
+  <a class="card" href="reference/gallery.html"><b>Catálogo de componentes</b> — generado desde <code>src/components.css</code>. Cada componente con preview y HTML.</a>
+  <a class="card" href="reference/template.html"><b>Plantilla base de propuesta</b> — deck armado en el orden real que toda propuesta clona.</a>
+  <a class="card" href="tokens/tokens.json"><b>tokens.json</b> — fuente única de color, tipografía, radios y canvas.</a>
+
+  <h2>Consumir</h2>
+  <p>Un deck linkea <b>un</b> archivo. Pinnea la versión: un deck viejo no se rompe con un cambio del kit.</p>
+  <pre>&lt;link rel="stylesheet" href="https://ESTE-HOST/dist/neo-ui@0.1.0.css"&gt;</pre>
+  <p class="muted">El alias sin versión (<code>dist/neo-ui.css</code>) apunta siempre al último build — úsalo solo en desarrollo.
+     El CSS trae las fuentes (PT Serif, Montserrat) y los fondos por ruta relativa a este host, con CORS abierto.</p>
+</main>
+</body>
+</html>

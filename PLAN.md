@@ -4,8 +4,12 @@ Design system de **slides/decks** de NEO Consulting (`neoconsulting.ai`), format
 1920×1080. Fuente única de verdad para tokens, marca, assets y componentes de slide.
 El agente (Claude) genera HTML limpio y semántico; esta librería sirve los estilos.
 
-> **Estado:** Fase 0 (Fundación) completa. Pipeline de tokens + build Tailwind v4 +
-> render verificado. Siguiente: Fase 1 (Paridad — migrar componentes + `fixed/`).
+> **Estado:** Fases 0-2 en pie. Pipeline de tokens + build Tailwind v4, 19 componentes
+> (incluidos los de contenido: `.cron`, `.proc-card`, `.stage-block`, `.temario-row`,
+> `.proc-cols`/`.tl`), catálogo generado, plantilla base, y **kit desplegado en Cloud Run**
+> (servicio `neo-ui`) con CSS pinneado por versión. neo-propuestas ya consume neo-ui vía
+> `neo://maquetado`; neo-deck quedó marcado `DEPRECATED.md`. Siguiente: Fase 3 (gate
+> `lint.mjs` + CI) y Fase 4 (componentes nuevos: `.case-card`, `.team-card`, `.stats`…).
 
 ---
 
@@ -38,7 +42,7 @@ Componente = clase semántica. Layout = subset acotado de utilidades Tailwind. C
 | **Alcance** | **Solo slides/decks** (canvas 1920×1080). Sin modo web / fluido. |
 | **Fuente única** | neo-ui es la única fuente. **neo-deck y neo-design-system se retiran.** neo-propuestas consume neo-ui. |
 | **Pureza HTML** | **Híbrido controlado**: componentes = clases semánticas; layout = subset acotado de utilidades Tailwind (`grid-cols-3`, `gap-8`, `flex`). |
-| **Serving** | **CSS precompilado estático** (`dist/neo-ui.css`). Agente linkea 1 archivo. Cero JS runtime (salvo escalado), cero CDN, offline, render instantáneo. |
+| **Serving** | **CSS precompilado estático** (`dist/neo-ui.css`), servido en **Cloud Run** (servicio `neo-ui`, nginx, scale-to-zero, CORS abierto). Agente linkea 1 archivo por URL pinneada. Cero JS runtime, cero CDN externo, render instantáneo. |
 | **Tailwind** | v4, **solo build-time**. Autoría con `@theme` + `@layer components` + `@apply`. |
 | **Ingeniería** | Tokens como fuente real con pipeline de derivación · docs/galería generados · semver + versionado del artefacto · CI con gate (build + lint + visual regression) · arquitectura en capas. |
 
@@ -171,8 +175,9 @@ dev). **El mantenedor buildea; el agente nunca buildea** — solo linkea `dist/n
 - `dist/neo-ui.css` publicado **versionado**: `neo-ui@1.2.0.css` + alias `latest`.
 - neo-propuestas **pinnea versión** (`KIT_URL/neo-ui@1.2.0.css`) → un deck viejo nunca se
   rompe por un cambio de kit. `latest` solo para dev.
-- Distribución: hosted URL versionado (Cloud Run / CDN) — encaja con MCP + skill. (npm
-  opcional después.)
+- Distribución **hecha**: hosted URL versionado en Cloud Run (`/dist/neo-ui@<version>.css`,
+  cache inmutable; el alias sin versión es solo para dev). `scripts/deploy.sh` buildea, genera
+  el catálogo, pinnea y sube. (npm opcional después.)
 
 ---
 
@@ -217,8 +222,8 @@ Fase 4. El trabajo "componente a componente" es la Fase 4.
 | Fase | Qué | Riesgo |
 |---|---|---|
 | **0 — Fundación** | `git init`, scaffold, `package.json`. `tokens.json` + `build-tokens.mjs` → `theme.css`. safelist. Build Tailwind → `dist`. Verificar que buildea. | bajo, sin cambio visual |
-| **1 — Paridad** | Migrar los ~15 componentes actuales a `@layer components` + `@apply`. Migrar `fixed/` + galería + assets. Deck UCIC = **mismo render (golden pixel)** antes de agregar nada. Retirar neo-deck (`DEPRECATED.md`). | bajo |
-| **2 — Fuente única + docs** | `build-docs.mjs`. Cablear neo-propuestas a pinnear `dist`. Migrar brand narrative / assets. Retirar neo-design-system. | medio |
+| **1 — Paridad** ✅ | Componentes migrados a `@layer components` + `@apply` (incluidos los de contenido: `.cron`, `.proc-card`, `.stage-block`, `.temario-row`, `.proc-cols`/`.tl`). Los slides fijos son componentes, no archivos `fixed/`. neo-deck marcado `DEPRECATED.md`. Pendiente: re-render del deck UCIC con neo-ui (la escala tipográfica subió a piso 20pt, así que **no** es golden-pixel con el kit viejo — es un cambio deliberado). | bajo |
+| **2 — Fuente única + docs** ✅ | `build-docs.mjs` genera el catálogo. neo-propuestas pinnea `dist/neo-ui@<version>.css` vía `neo://maquetado`. Pendiente: migrar brand narrative y retirar neo-design-system. | medio |
 | **3 — Gate** | `lint.mjs` + CI (build + lint + visual regression). | bajo |
 | **4 — Componentes nuevos** | Orden por frecuencia × riesgo (ver §9), **uno a la vez, revisado**. | incremental |
 | **5 — Skill** | `SKILL.md` reescrito para la lib nueva (linkea `neo-ui.css`, vocabulario semántico + palette de utilidades). | bajo |
@@ -267,9 +272,8 @@ repo o queda `[a completar a mano]`. Hereda la regla anti-alucinación del siste
 
 ## Referencias
 
-- Kit actual: `../neo-deck/neo-kit.css`, `SKILL.md`, `EVOLUCION-KIT.md` (plan previo hacia
-  Tailwind, base de este documento).
+- Kit anterior (DEPRECADO, congelado): `../neo-deck/` — `neo-kit.css`, `SKILL.md`,
+  `EVOLUCION-KIT.md` (plan previo hacia Tailwind, base de este documento) y `DEPRECATED.md`
+  con el mapa viejo→nuevo.
 - Marca: `../neo-design-system/README.md`, `colors_and_type.css`, `SKILL.md`.
 - Consumidor: `../neo-propuestas/PLAN.md` (flujo de propuestas, Fase 7 = maquetado).
-</content>
-</invoke>

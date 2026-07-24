@@ -5,6 +5,38 @@ Versionado [SemVer](https://semver.org/lang/es/).
 
 ## [Unreleased]
 
+### Added — Despliegue (servir el kit) + paridad de componentes de contenido
+- **neo-ui se sirve como sitio estático en Cloud Run** (servicio `neo-ui`, proyecto
+  `brain-clientes`/`us-central1`). Un deck linkea el CSS por URL, sin build ni Skill que
+  instalar por máquina. Infra: `Dockerfile` (nginx-unprivileged, uid 101, puerto 8080,
+  COPY explícito del webroot: `index.html` + `dist/` + `assets/` + `reference/` + `tokens/`),
+  `default.conf` (CORS `*` — **obligatorio**: sin `Access-Control-Allow-Origin` el navegador
+  rechaza las `@font-face` cross-origin —, MIME `font/ttf`, gzip, cache: 1 año inmutable para
+  el CSS pinneado, 7d imágenes, 5min alias/HTML, `nosniff`), `index.html` (landing),
+  `.dockerignore`, `.gcloudignore`, `scripts/deploy.sh`.
+- **CSS pinneado por versión**: `deploy.sh` buildea, genera el catálogo y copia
+  `dist/neo-ui.css` → `dist/neo-ui@<version>.css` (derivada, gitignorada) antes de subir. El
+  consumidor pinnea (`/dist/neo-ui@0.1.0.css`) y un deck viejo no se rompe cuando el kit
+  avanza; `dist/neo-ui.css` queda como alias `latest` para dev.
+  `.gcloudignore` es explícito a propósito: sin él gcloud deriva uno de `.gitignore` y la
+  copia pinneada quedaría fuera de la imagen.
+- **Componentes de contenido portados del kit viejo** (cierran la paridad que el flujo de
+  propuestas necesitaba para maquetar de punta a punta):
+  - `.proc-card` — card de borde punteado (paso de proceso / slot `[a completar a mano]`).
+  - `.stage-block` + `.stage-label` + `.entregable-card` — etapa del proceso (tríada
+    BENEFICIOS / NECESITAMOS DEL CLIENTE / ENTREGABLE).
+  - `.cron` + `.notes` — tabla de cronograma e inversión (`td.stage`/`td.on`/`td.price`).
+  - `.temario-row` + `.temario-card` (+ `.ast`) + `.temario-note` — sílabo por sesión.
+  - `.proc-cols` + `.tl` — proceso en 4 columnas con línea de tiempo y nodos.
+  No es un port verbatim: los tamaños se re-mapearon a la escala tokenizada (piso de 20pt),
+  los hex crudos salieron a tokens (`--card-soft`, `--node-ring`, alias nuevos) y los SVG de
+  íconos usan `currentColor` (`.proc-cols .ico` lleva el color). Verificado headless: los 12
+  ejemplos de slide completa miden ≤1920×1080 sin overflow (medido con `overflow:visible`
+  forzado, porque el `overflow:hidden` de `.slide` enmascara el desborde; el arnés se validó
+  con una slide de control que sí desborda).
+- `tokens.json`: alias `card-soft` (#EAE7F8) y `node-ring` (#E7E7F4); `text.legal` documenta
+  que también cubre `.notes` y las sub-líneas de `.cron`.
+
 ### Added — Fase 2 · Fuente única + docs (en curso)
 - `reference/template.html` — **plantilla base de propuesta** (deck armado en orden
   real que toda propuesta clona). Es contenido authored a mano — NO se genera. Antes

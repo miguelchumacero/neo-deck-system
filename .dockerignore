@@ -1,0 +1,16 @@
+# Fuera del contexto de build (no se sirven ni hacen falta en la imagen).
+.git/
+.gitignore
+.gitattributes
+.dockerignore
+Dockerfile
+node_modules/
+scripts/
+src/
+tools/
+samples/
+tests/
+package.json
+package-lock.json
+safelist.txt
+*.md

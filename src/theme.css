@@ -93,6 +93,8 @@
   --fg-on-dark: rgba(255,255,255,0.75);
   --fg-faint-on-dark: rgba(255,255,255,0.6);
   --border-on-dark: rgba(255,255,255,0.18);
+  --card-soft: #EAE7F8;
+  --node-ring: #E7E7F4;
   --slide-w: 1920px;
   --slide-h: 1080px;
   --gutter: 100px;

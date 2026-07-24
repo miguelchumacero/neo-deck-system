@@ -9,11 +9,17 @@ Ver [`PLAN.md`](./PLAN.md) para la visión completa y el roadmap por fases.
 
 ## Uso (consumidor)
 
-Linkea **un** archivo. Nada de build, nada de CDN, offline:
+Linkea **un** archivo. Nada de build, nada de CDN:
 
 ```html
+<!-- servido (producción): pinnea la versión -->
+<link rel="stylesheet" href="https://neo-ui-466944173234.us-central1.run.app/dist/neo-ui@0.1.0.css">
+
+<!-- local / dev: alias latest -->
 <link rel="stylesheet" href="dist/neo-ui.css">
 ```
+
+El CSS trae fuentes, logos y fondos por ruta relativa al host, con CORS abierto.
 
 HTML objetivo — componente = clase semántica, layout = subset de utilidades:
 
@@ -36,6 +42,17 @@ npm run css:dev    # watch mode
 ```
 
 **El mantenedor buildea; el agente nunca buildea** — solo linkea `dist/neo-ui.css`.
+
+## Despliegue
+
+```bash
+./scripts/deploy.sh        # buildea, genera catálogo, pinnea versión y sube a Cloud Run
+```
+
+Servicio `neo-ui` (proyecto `brain-clientes`, `us-central1`), nginx estático, scale-to-zero.
+Webroot = `index.html` + `dist/` + `assets/` + `reference/` + `tokens/`. El deploy genera
+`dist/neo-ui@<version>.css` (pinneado, cache inmutable) además del alias `dist/neo-ui.css`.
+Consumidor: `neo-propuestas` (resource `neo://maquetado`) pinnea la versión.
 
 ### Pipeline
 
@@ -60,7 +77,8 @@ src/primitives.css · src/components.css · safelist ─────────
 | `dist/neo-ui.css` | Artefacto precompilado |
 | `assets/` | fonts, logos, backgrounds |
 | `reference/gallery.html` | Styleguide vivo |
-| `tools/` | `build-tokens.mjs`, `build-docs.mjs`, `lint.mjs` |
+| `tools/` | `build-tokens.mjs`, `build-docs.mjs` (`lint.mjs` pendiente — Fase 3) |
+| `Dockerfile` · `default.conf` · `scripts/deploy.sh` | Serving estático en Cloud Run |
 
 ## Reglas de marca (guardrails)
 

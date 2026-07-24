@@ -39,7 +39,7 @@
 <body>
   <header class="gallery-head">
     <h1>neo-ui · catálogo de componentes</h1>
-    <p>Generado desde <code>src/components.css</code> por <code>npm run docs</code> — 13 componentes. No editar a mano. La plantilla base de propuesta (deck armado) es <code>reference/template.html</code>.</p>
+    <p>Generado desde <code>src/components.css</code> por <code>npm run docs</code> — 19 componentes. No editar a mano. La plantilla base de propuesta (deck armado) es <code>reference/template.html</code>.</p>
   </header>
   <div class="specimens">
     <section class="specimen" id="card">
@@ -189,6 +189,312 @@
       &lt;div class="agenda-list"&gt;
         &lt;div class="agenda-item"&gt;&lt;span class="n"&gt;01&lt;/span&gt;&lt;span class="l"&gt;[[Contexto]]&lt;/span&gt;&lt;/div&gt;
         &lt;div class="agenda-item"&gt;&lt;span class="n"&gt;02&lt;/span&gt;&lt;span class="l"&gt;[[El reto]]&lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+      </details>
+    </section>
+
+    <section class="specimen" id="proc-card">
+      <div class="specimen-meta">
+        <code>.proc-card</code>
+        <p>card de borde punteado azul: paso de proceso, bloque de alcance, o slot pendiente de dato (`[a completar a mano]`). `.t` = título display, `.d` = descripción. Se combina en grids de 2-4 columnas.</p>
+      </div>
+    <div class="frag">
+    <div class="proc-card">
+      <p class="t">Diagnóstico</p>
+      <p class="d">Levantamos el estado actual con el equipo del cliente y priorizamos los casos de uso de mayor impacto.</p>
+    </div> 
+    </div>
+      <details class="specimen-src">
+        <summary>HTML</summary>
+        <pre><code>&lt;div class="proc-card"&gt;
+  &lt;p class="t"&gt;Diagnóstico&lt;/p&gt;
+  &lt;p class="d"&gt;Levantamos el estado actual con el equipo del cliente y priorizamos los casos de uso de mayor impacto.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+      </details>
+    </section>
+
+    <section class="specimen" id="stage-block">
+      <div class="specimen-meta">
+        <code>.stage-block</code>
+        <p>etapa del proceso: bloque separado por hairline navy, con `.stage-label` (label uppercase) y contenido. La firma de casa es la tríada por etapa BENEFICIOS / NECESITAMOS DEL CLIENTE / ENTREGABLE; el entregable va en `.entregable-card` (card lila). Última etapa sin hairline (`:last-child`).</p>
+      </div>
+    <div class="frag">
+    <div>
+      <div class="stage-block">
+        <p class="stage-label">Etapa 1 · Diagnóstico</p>
+        <p class="body muted">Dos sesiones de levantamiento con los líderes de área y revisión de los procesos priorizados.</p>
+      </div>
+      <div class="stage-block">
+        <p class="stage-label">Necesitamos del cliente</p>
+        <p class="body muted">Acceso a la data de los procesos y disponibilidad de los dueños de área.</p>
+      </div>
+      <div class="entregable-card">
+        <p class="stage-label">Entregable</p>
+        <p class="body">Informe de casos de uso priorizados con su estimación de impacto.</p>
+      </div>
+    </div> 
+    </div>
+      <details class="specimen-src">
+        <summary>HTML</summary>
+        <pre><code>&lt;div&gt;
+  &lt;div class="stage-block"&gt;
+    &lt;p class="stage-label"&gt;Etapa 1 · Diagnóstico&lt;/p&gt;
+    &lt;p class="body muted"&gt;Dos sesiones de levantamiento con los líderes de área y revisión de los procesos priorizados.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="stage-block"&gt;
+    &lt;p class="stage-label"&gt;Necesitamos del cliente&lt;/p&gt;
+    &lt;p class="body muted"&gt;Acceso a la data de los procesos y disponibilidad de los dueños de área.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="entregable-card"&gt;
+    &lt;p class="stage-label"&gt;Entregable&lt;/p&gt;
+    &lt;p class="body"&gt;Informe de casos de uso priorizados con su estimación de impacto.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </details>
+    </section>
+
+    <section class="specimen" id="cron">
+      <div class="specimen-meta">
+        <code>.cron</code>
+        <p>tabla de cronograma e inversión (el deck real las combina en una sola slide). Etapas en filas, periodos en columnas: `td.stage` = etapa (con `&lt;small&gt;` de detalle), `td.on` = celda marcada del periodo, `td.price` = inversión con `rowspan` sobre todas las filas. FIJA de estructura: el precio NUNCA se genera — se recupera o queda `[a completar a mano]`. Las condiciones van en `.notes`. Sub-líneas y notas usan `--text-legal` (excepción documentada al piso tipográfico de 20pt: la tabla completa no entra en 1920×1080 si suben al piso).</p>
+      </div>
+    <div class="deck">
+    <section class="slide">
+      <div class="cobrand">
+        <span class="client-logo">[[CLIENTE]]</span><span class="sep"></span>
+        <img src="../assets/logos/neo-logo-navy.png" alt="NEO · 25 años">
+      </div>
+      <h1 class="h1">Cronograma e inversión</h1>
+      <table class="cron" style="margin-top:56px">
+        <thead>
+          <tr>
+            <th style="width:38%">Etapa</th>
+            <th>Semana 1</th><th>Semana 2</th><th>Semana 3</th><th>Semana 4</th>
+            <th style="width:20%">Inversión<br>total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="stage">Diagnóstico<small>Levantamiento y priorización de casos de uso.</small></td>
+            <td class="on"></td><td></td><td></td><td></td>
+            <td class="price" rowspan="4">[a completar a mano]<small>(sin IGV)</small></td>
+          </tr>
+          <tr><td class="stage">Diseño del programa</td><td></td><td class="on"></td><td></td><td></td></tr>
+          <tr><td class="stage">Ejecución</td><td></td><td></td><td class="on"></td><td class="on"></td></tr>
+          <tr><td class="stage">Cierre y medición</td><td></td><td></td><td></td><td class="on"></td></tr>
+        </tbody>
+      </table>
+      <ul class="notes">
+        <li>Los precios no incluyen IGV.</li>
+        <li>Forma de facturación: 100% al inicio del programa.</li>
+      </ul>
+    </section> 
+    </div>
+      <details class="specimen-src">
+        <summary>HTML</summary>
+        <pre><code>&lt;section class="slide"&gt;
+  &lt;div class="cobrand"&gt;
+    &lt;span class="client-logo"&gt;[[CLIENTE]]&lt;/span&gt;&lt;span class="sep"&gt;&lt;/span&gt;
+    &lt;img src="../assets/logos/neo-logo-navy.png" alt="NEO · 25 años"&gt;
+  &lt;/div&gt;
+  &lt;h1 class="h1"&gt;Cronograma e inversión&lt;/h1&gt;
+  &lt;table class="cron" style="margin-top:56px"&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th style="width:38%"&gt;Etapa&lt;/th&gt;
+        &lt;th&gt;Semana 1&lt;/th&gt;&lt;th&gt;Semana 2&lt;/th&gt;&lt;th&gt;Semana 3&lt;/th&gt;&lt;th&gt;Semana 4&lt;/th&gt;
+        &lt;th style="width:20%"&gt;Inversión&lt;br&gt;total&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td class="stage"&gt;Diagnóstico&lt;small&gt;Levantamiento y priorización de casos de uso.&lt;/small&gt;&lt;/td&gt;
+        &lt;td class="on"&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;
+        &lt;td class="price" rowspan="4"&gt;[a completar a mano]&lt;small&gt;(sin IGV)&lt;/small&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;&lt;td class="stage"&gt;Diseño del programa&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td class="on"&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td class="stage"&gt;Ejecución&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td class="on"&gt;&lt;/td&gt;&lt;td class="on"&gt;&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td class="stage"&gt;Cierre y medición&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td class="on"&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+  &lt;ul class="notes"&gt;
+    &lt;li&gt;Los precios no incluyen IGV.&lt;/li&gt;
+    &lt;li&gt;Forma de facturación: 100% al inicio del programa.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/section&gt;</code></pre>
+      </details>
+    </section>
+
+    <section class="specimen" id="notes">
+      <div class="specimen-meta">
+        <code>.notes</code>
+        <p>lista de condiciones / notas al pie con viñeta navy. Va bajo la tabla de cronograma o cualquier slide con letra comercial (IGV, vigencia, facturación). Usa `--text-legal` (excepción al piso de 20pt).</p>
+      </div>
+    <div class="frag">
+    <ul class="notes">
+      <li>Los precios no incluyen IGV.</li>
+      <li>Propuesta vigente por 30 días calendario.</li>
+    </ul> 
+    </div>
+      <details class="specimen-src">
+        <summary>HTML</summary>
+        <pre><code>&lt;ul class="notes"&gt;
+  &lt;li&gt;Los precios no incluyen IGV.&lt;/li&gt;
+  &lt;li&gt;Propuesta vigente por 30 días calendario.&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+      </details>
+    </section>
+
+    <section class="specimen" id="temario-row">
+      <div class="specimen-meta">
+        <code>.temario-row</code>
+        <p>fila de sílabo/temario: card de sesión (o herramienta) a la izquierda + título `.t` y detalle `.d` a la derecha. Repetible por sesión; el patrón real del deck lista 4-6 filas por slide. `.ast` marca el asterisco de una fila con nota, `.temario-note` es el disclaimer de personalización al pie.</p>
+      </div>
+    <div class="deck">
+    <section class="slide">
+      <div class="cobrand">
+        <span class="client-logo">[[CLIENTE]]</span><span class="sep"></span>
+        <img src="../assets/logos/neo-logo-navy.png" alt="NEO · 25 años">
+      </div>
+      <p class="eyebrow">Temario</p>
+      <h1 class="h1">Contenido del programa</h1>
+      <div style="margin-top:40px">
+        <div class="temario-row">
+          <div class="temario-card">Sesión 1</div>
+          <div>
+            <p class="t">Fundamentos de IA aplicada al negocio</p>
+            <p class="d">Qué resuelve hoy la IA generativa, dónde falla y cómo leer un caso de uso rentable.</p>
+          </div>
+        </div>
+        <div class="temario-row">
+          <div class="temario-card">Sesión 2<span class="ast">*</span></div>
+          <div>
+            <p class="t">Prompting para tareas del área</p>
+            <p class="d">Práctica guiada sobre tareas reales del equipo, con los formatos que ya usan.</p>
+          </div>
+        </div>
+      </div>
+      <p class="temario-note">* El detalle de cada sesión se ajusta al diagnóstico previo con el equipo.</p>
+    </section> 
+    </div>
+      <details class="specimen-src">
+        <summary>HTML</summary>
+        <pre><code>&lt;section class="slide"&gt;
+  &lt;div class="cobrand"&gt;
+    &lt;span class="client-logo"&gt;[[CLIENTE]]&lt;/span&gt;&lt;span class="sep"&gt;&lt;/span&gt;
+    &lt;img src="../assets/logos/neo-logo-navy.png" alt="NEO · 25 años"&gt;
+  &lt;/div&gt;
+  &lt;p class="eyebrow"&gt;Temario&lt;/p&gt;
+  &lt;h1 class="h1"&gt;Contenido del programa&lt;/h1&gt;
+  &lt;div style="margin-top:40px"&gt;
+    &lt;div class="temario-row"&gt;
+      &lt;div class="temario-card"&gt;Sesión 1&lt;/div&gt;
+      &lt;div&gt;
+        &lt;p class="t"&gt;Fundamentos de IA aplicada al negocio&lt;/p&gt;
+        &lt;p class="d"&gt;Qué resuelve hoy la IA generativa, dónde falla y cómo leer un caso de uso rentable.&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="temario-row"&gt;
+      &lt;div class="temario-card"&gt;Sesión 2&lt;span class="ast"&gt;*&lt;/span&gt;&lt;/div&gt;
+      &lt;div&gt;
+        &lt;p class="t"&gt;Prompting para tareas del área&lt;/p&gt;
+        &lt;p class="d"&gt;Práctica guiada sobre tareas reales del equipo, con los formatos que ya usan.&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;p class="temario-note"&gt;* El detalle de cada sesión se ajusta al diagnóstico previo con el equipo.&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+      </details>
+    </section>
+
+    <section class="specimen" id="proc-cols">
+      <div class="specimen-meta">
+        <code>.proc-cols</code>
+        <p>proceso en columnas: ícono, título `.step-t` y detalle `.step-d` por paso, con `.tl` (línea + nodos) entre íconos y títulos. `.tl` está calibrado para 4 columnas (con otro número la línea queda algo corta). Los íconos son SVG inline; si no hay ícono, se omite el `.ico` y queda el nodo.</p>
+      </div>
+    <div class="deck">
+    <section class="slide">
+      <div class="cobrand">
+        <span class="client-logo">[[CLIENTE]]</span><span class="sep"></span>
+        <img src="../assets/logos/neo-logo-navy.png" alt="NEO · 25 años">
+      </div>
+      <p class="eyebrow">Nuestro proceso</p>
+      <h1 class="h1">Cómo lo ejecutamos</h1>
+      <div style="margin-top:64px">
+        <div class="proc-cols">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></svg></div>
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></div>
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V8m6 12V4m6 16v-9m4 9H2"/></svg></div>
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 6L9 17l-5-5"/></svg></div>
+        </div>
+        <div class="tl">
+          <div class="node"><span></span></div>
+          <div class="node"><span></span></div>
+          <div class="node"><span></span></div>
+          <div class="node"><span></span></div>
+        </div>
+        <div class="proc-cols">
+          <div>
+            <p class="step-t">Diagnóstico</p>
+            <p class="step-d">Levantamos procesos y priorizamos casos de uso.</p>
+          </div>
+          <div>
+            <p class="step-t">Diseño</p>
+            <p class="step-d">Armamos el programa con las tareas reales del equipo.</p>
+          </div>
+          <div>
+            <p class="step-t">Ejecución</p>
+            <p class="step-d">Sesiones prácticas con acompañamiento.</p>
+          </div>
+          <div>
+            <p class="step-t">Medición</p>
+            <p class="step-d">Cerramos con indicadores de adopción.</p>
+          </div>
+        </div>
+      </div>
+    </section> 
+    </div>
+      <details class="specimen-src">
+        <summary>HTML</summary>
+        <pre><code>&lt;section class="slide"&gt;
+  &lt;div class="cobrand"&gt;
+    &lt;span class="client-logo"&gt;[[CLIENTE]]&lt;/span&gt;&lt;span class="sep"&gt;&lt;/span&gt;
+    &lt;img src="../assets/logos/neo-logo-navy.png" alt="NEO · 25 años"&gt;
+  &lt;/div&gt;
+  &lt;p class="eyebrow"&gt;Nuestro proceso&lt;/p&gt;
+  &lt;h1 class="h1"&gt;Cómo lo ejecutamos&lt;/h1&gt;
+  &lt;div style="margin-top:64px"&gt;
+    &lt;div class="proc-cols"&gt;
+      &lt;div class="ico"&gt;&lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"&gt;&lt;circle cx="11" cy="11" r="7"/&gt;&lt;path d="M16 16l5 5"/&gt;&lt;/svg&gt;&lt;/div&gt;
+      &lt;div class="ico"&gt;&lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"&gt;&lt;rect x="3" y="4" width="18" height="16" rx="2"/&gt;&lt;path d="M3 9h18"/&gt;&lt;/svg&gt;&lt;/div&gt;
+      &lt;div class="ico"&gt;&lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"&gt;&lt;path d="M4 20V8m6 12V4m6 16v-9m4 9H2"/&gt;&lt;/svg&gt;&lt;/div&gt;
+      &lt;div class="ico"&gt;&lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"&gt;&lt;path d="M20 6L9 17l-5-5"/&gt;&lt;/svg&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="tl"&gt;
+      &lt;div class="node"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+      &lt;div class="node"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+      &lt;div class="node"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+      &lt;div class="node"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="proc-cols"&gt;
+      &lt;div&gt;
+        &lt;p class="step-t"&gt;Diagnóstico&lt;/p&gt;
+        &lt;p class="step-d"&gt;Levantamos procesos y priorizamos casos de uso.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;p class="step-t"&gt;Diseño&lt;/p&gt;
+        &lt;p class="step-d"&gt;Armamos el programa con las tareas reales del equipo.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;p class="step-t"&gt;Ejecución&lt;/p&gt;
+        &lt;p class="step-d"&gt;Sesiones prácticas con acompañamiento.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;p class="step-t"&gt;Medición&lt;/p&gt;
+        &lt;p class="step-d"&gt;Cerramos con indicadores de adopción.&lt;/p&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
